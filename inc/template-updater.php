@@ -12,7 +12,7 @@
  * Automatic theme updates from the GitHub repository
  * Care of https://gist.github.com/slfrsn/a75b2b9ef7074e22ce3b. modified by me
  */ 
-/*
+
 add_filter('pre_set_site_transient_update_themes', 'automatic_GitHub_updates', 100, 1);
 
 function automatic_GitHub_updates($data) {
@@ -21,7 +21,7 @@ function automatic_GitHub_updates($data) {
   $current = wp_get_theme()->get('Version'); // Get the version of the current theme
   // GitHub information
   $user = 'BeechAgency'; // The GitHub username hosting the repository
-  $repo = 'beech_github_wp_theme_test'; // Repository name as it appears in the URL
+  $repo = 'cso-master'; // Repository name as it appears in the URL
   // Get the latest release tag from the repository. The User-Agent header must be sent, as per
   // GitHub's API documentation: https://developer.github.com/v3/#user-agent-required
   $file = json_decode(file_get_contents('https://api.github.com/repos/'.$user.'/'.$repo.'/releases/latest', false,
@@ -46,4 +46,3 @@ function automatic_GitHub_updates($data) {
   }
   return $data;
 }
-*/
