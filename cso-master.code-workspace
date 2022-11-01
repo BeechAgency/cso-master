@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../plugins/beech_login"
+		},
+		{
+			"path": "../../plugins/beech_notifications"
+		}
+	],
+	"settings": {}
+}

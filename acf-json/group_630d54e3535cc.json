@@ -1,0 +1,194 @@
+{
+    "key": "group_630d54e3535cc",
+    "title": "Global Header Options",
+    "fields": [
+        {
+            "key": "field_630d54eced1b4",
+            "label": "Navigation Style",
+            "name": "navigation_style",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Logo Left Aligned",
+                "centred": "Logo Centred",
+                "solid": "Logo Left with Solid Background"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_630d5613ed1b8",
+            "label": "Navigation Background Color",
+            "name": "primary_navigation_background_color",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "has-primary-dark-background-color has-white-color": "Primary Dark",
+                "has-primary-light-background-color has-black-color": "Primary Light",
+                "has-secondary-dark-background-color has-white-color": "Secondary Dark",
+                "has-secondary-light-background-color has-black-color": "Secondary Light"
+            },
+            "default_value": "has-primary-dark-background-color has-white-color",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_630d5563ed1b5",
+            "label": "Display Auxiliary Navigation",
+            "name": "auxiliary_navigation_display",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_630d559aed1b7",
+            "label": "Auxiliary Navigation Background",
+            "name": "auxiliary_navigation_background_color",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "has-primary-dark-background-color has-white-color": "Primary Dark",
+                "has-primary-light-background-color has-black-color": "Primary Light",
+                "has-secondary-dark-background-color has-white-color": "Secondary Dark",
+                "has-secondary-light-background-color has-black-color": "Secondary Light"
+            },
+            "default_value": "has-primary-dark-background-color has-white-color",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6316d3e923a2a",
+            "label": "Auxiliary Navigation Background (Inverse)",
+            "name": "auxiliary_navigation_background_color_inverse",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "has-primary-dark-background-color has-white-color": "Primary Dark",
+                "has-primary-light-background-color has-black-color": "Primary Light",
+                "has-secondary-dark-background-color has-white-color": "Secondary Dark",
+                "has-secondary-light-background-color has-black-color": "Secondary Light"
+            },
+            "default_value": "has-primary-dark-background-color has-white-color",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_630d557aed1b6",
+            "label": "Auxiliary Navigation Text",
+            "name": "auxiliary_navigation_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_630d564ded1b9",
+            "label": "Expanded Navigation Background",
+            "name": "mega_navigation_background_color",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "has-primary-dark-background-color has-white-color": "Primary Dark",
+                "has-primary-light-background-color has-black-color": "Primary Light",
+                "has-secondary-dark-background-color has-white-color": "Secondary Dark",
+                "has-secondary-light-background-color has-black-color": "Secondary Light"
+            },
+            "default_value": "has-primary-dark-background-color has-white-color",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-header"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1662440444
+}

@@ -1,0 +1,521 @@
+/*
+ *  Xylem - Responsive CSS Grid framework
+ *  @author - @joshwayman
+ *  @version - 1.1
+ */
+
+:root {
+    --xy-grid-cols : 12; /* Default to a 12 column grid, changing this will mess stuff up */
+
+    /* For sections */
+    --xy-padding-block : 1.5rem;
+    --xy-padding-inline : 3rem;
+
+    /* Gutter is the horizontal gap along the side of the page, it's used to create a nice whitespace */
+    --xy-gutter : var(--xy-padding-inline);
+    --xy-col-gap : calc( var(--xy-padding-inline) / 4 );
+    --xy-row-gap : var(--xy-padding-block);
+
+    /* Max widths */
+    --xy-max-width : 100%;
+}
+
+* { box-sizing: border-box; }
+
+html, body { padding: 0; margin: 0; border: 0; }
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Sections break content up, it is the outermost element */
+section {
+    display: block;
+    margin: 0 auto;
+    /*padding: var(--xy-padding-block) 0;*/
+}
+
+
+/*
+ * Structure and Grid
+ */
+/* A container's job is to contain things - so gutter and max width and positining */
+.xy-container {
+    max-width: var(--xy-max-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--xy-gutter);
+    display: block;
+}
+
+/* If two containers are stacked give them some breathing room */
+.xy-container + .xy-container {
+    margin-top: var(--xy-padding-block);
+}
+
+/* A rows job is to be a wrapper for the row of items, it puts stuff on a grid */
+.xy-grid {
+    width: 100%;
+
+    --rows : 1;
+    row-gap: var(--xy-row-gap);
+    column-gap: var(--xy-col-gap);
+    grid-template-columns: repeat(var(--xy-grid-cols, 12), 1fr);
+    grid-template-rows: repeat(var(--rows, 1), 1fr);
+    display: grid;
+    grid-auto-flow: row;
+    justify-items: stretch;
+    align-items: stretch;
+    justify-content: stretch;
+    align-content: stretch;
+}
+.xy-grid.has-gutter, .xy-flex.has-gutter, .has-gutter {
+    padding-inline: var(--xy-gutter);
+}
+
+.xy-grid[data-xy-items*="align-stretch"] {  align-items: stretch; }
+.xy-grid[data-xy-items*="align-baseline"] {  align-items: baseline; }
+.xy-grid[data-xy-items*="align-start"] {  align-items: start; }
+.xy-grid[data-xy-items*="align-end"] {  align-items: end; }
+.xy-grid[data-xy-items*="align-center"] {  align-items: center; }
+
+.xy-grid[data-xy-items*="justify-stretch"] {  justify-items: stretch; }
+.xy-grid[data-xy-items*="justify-baseline"] {  justify-items: baseline; }
+.xy-grid[data-xy-items*="justify-start"] {  justify-items: start; }
+.xy-grid[data-xy-items*="justify-end"] {  justify-items: end; }
+.xy-grid[data-xy-items*="justify-center"] {  justify-items: center; }
+
+.xy-flex[data-xy-items*="align-stretch"] {  align-items: stretch; }
+.xy-flex[data-xy-items*="align-baseline"] {  align-items: baseline; }
+.xy-flex[data-xy-items*="align-start"] {  align-items: flex-start; }
+.xy-flex[data-xy-items*="align-end"] {  align-items: flex-end; }
+.xy-flex[data-xy-items*="align-center"] {  align-items: center; }
+
+.xy-flex[data-xy-items*="justify-stretch"] {  justify-items: stretch; }
+.xy-flex[data-xy-items*="justify-baseline"] {  justify-items: baseline; }
+.xy-flex[data-xy-items*="justify-start"] {  justify-items: flex-start; }
+.xy-flex[data-xy-items*="justify-end"] {  justify-items: flex-end; }
+.xy-flex[data-xy-items*="justify-space-around"] {  justify-items: space-around; }
+.xy-flex[data-xy-items*="justify-space-between"] {  justify-items: space-between; }
+.xy-flex[data-xy-items*="justify-space-evenly"] {  justify-items: space-evenly; }
+
+.xy-flex[data-xy-flex*="nowrap"] { flex-wrap: nowrap; }
+.xy-flex[data-xy-flex*="wrap"] { flex-wrap: wrap; }
+.xy-flex[data-xy-flex*="column"] { flex-direction: column; }
+.xy-flex[data-xy-flex*="column-reverse"] { flex-direction: column-reverse; }
+.xy-flex[data-xy-flex*="row"] { flex-direction: row; }
+.xy-flex[data-xy-flex*="row-reverse"] { flex-direction: row-reverse; }
+
+
+.xy-flex[data-xy-flex*="center"] { justify-content: center; }
+.xy-flex[data-xy-flex*="flex-start"] { justify-content: flex-start; }
+.xy-flex[data-xy-flex*="flex-end"] { justify-content: flex-end; }
+.xy-flex[data-xy-flex*="space-between"] { justify-content: space-between; }
+.xy-flex[data-xy-flex*="space-around"] { justify-content: space-around; }
+.xy-flex[data-xy-flex*="space-evenly"] { justify-content: space-evenly; }
+
+
+.xy-col[data-xy-items*="align-stretch"] {  align-self: stretch; }
+.xy-col[data-xy-items*="align-baseline"] {  align-self: baseline; }
+.xy-col[data-xy-items*="align-start"] {  align-self: start; }
+.xy-col[data-xy-items*="align-end"] {  align-self: end; }
+.xy-col[data-xy-items*="align-center"] {  align-self: center; }
+
+.xy-col[data-xy-items*="justify-stretch"] {  justify-self: stretch; }
+.xy-col[data-xy-items*="justify-baseline"] {  justify-self: baseline; }
+.xy-col[data-xy-items*="justify-start"] {  justify-self: start; }
+.xy-col[data-xy-items*="justify-end"] {  justify-self: end; }
+.xy-col[data-xy-items*="justify-center"] {  justify-self: center; }
+
+
+/* Make sure rows are not smushed */
+/*
+.xy-grid + .xy-grid {
+    margin-top: var(--xy-row-gap);
+}
+*/
+
+/** 
+    Art of the xy-col and positioning 
+    A xy-col will set the template which you can then apply attributes to for extra positioning. 
+    Avoids class soup which I kind of hate
+*/
+.xy-col {
+    --col : 1; 
+    --row : auto;
+    --start: auto; 
+}
+
+.xy-grid .xy-col {
+    grid-column: var(--start) / span var(--col); 
+    grid-row: var(--row) / span var(--row-span, 1); 
+}
+
+
+/**
+ * EXPERIMENTAL - FLEX!
+ */
+ .xy-flex {
+    display: flex;
+    width: 100%;
+
+    row-gap: var(--xy-row-gap);
+    column-gap: var(--xy-col-gap);
+
+ }
+ 
+.xy-flex .xy-col {
+    --width : calc(  (var(--col, 6) / var(--xy-grid-cols, 12)) * 100%  ); /* Calculate the width of the col as a percentage of the total */
+
+    flex-basis: var(--width);
+    width: var(--width);
+}
+
+.xy-col[data-xy-col="1"] { --col : 1; }
+.xy-col[data-xy-col="2"] { --col : 2; }
+.xy-col[data-xy-col="3"] { --col : 3; }
+.xy-col[data-xy-col="4"] { --col : 4; }
+.xy-col[data-xy-col="5"] { --col : 5; }
+.xy-col[data-xy-col="6"] { --col : 6; }
+.xy-col[data-xy-col="7"] { --col : 7; }
+.xy-col[data-xy-col="8"] { --col : 8; }
+.xy-col[data-xy-col="9"] { --col : 9; }
+.xy-col[data-xy-col="10"] { --col : 10; }
+.xy-col[data-xy-col="11"] { --col : 11; }
+.xy-col[data-xy-col="12"] { --col : 12; }
+.xy-col[data-xy-col="auto"] { --col : auto; }
+
+
+.xy-col[data-xy-start=""] { --start : auto; }
+.xy-col[data-xy-start="auto"] { --start : auto; }
+.xy-col[data-xy-start="1"] { --start : 1; }
+.xy-col[data-xy-start="2"] { --start : 2; }
+.xy-col[data-xy-start="3"] { --start : 3; }
+.xy-col[data-xy-start="4"] { --start : 4; }
+.xy-col[data-xy-start="5"] { --start : 5; }
+.xy-col[data-xy-start="6"] { --start : 6; }
+.xy-col[data-xy-start="7"] { --start : 7; }
+.xy-col[data-xy-start="8"] { --start : 8; }
+.xy-col[data-xy-start="9"] { --start : 9; }
+.xy-col[data-xy-start="10"] { --start : 10; }
+.xy-col[data-xy-start="11"] { --start : 11; }
+.xy-col[data-xy-start="12"] { --start : 12; }
+
+
+.xy-col[data-xy-row=""] { --row : auto; }
+.xy-col[data-xy-row="auto"] { --row : auto; }
+.xy-col[data-xy-row="1"] { --row : 1; }
+.xy-col[data-xy-row="2"] { --row : 2; }
+.xy-col[data-xy-row="3"] { --row : 3; }
+.xy-col[data-xy-row="4"] { --row : 4; }
+.xy-col[data-xy-row="5"] { --row : 5; }
+.xy-col[data-xy-row="6"] { --row : 6; }
+.xy-col[data-xy-row="7"] { --row : 7; }
+.xy-col[data-xy-row="8"] { --row : 8; }
+.xy-col[data-xy-row="9"] { --row : 9; }
+.xy-col[data-xy-row="10"] { --row : 10; }
+.xy-col[data-xy-row="11"] { --row : 11; }
+.xy-col[data-xy-row="12"] { --row : 12; }
+
+.xy-col[data-xy-row-span=""] { --row-span : auto; }
+.xy-col[data-xy-row-span="auto"] { --row-span : auto; }
+.xy-col[data-xy-row-span="1"] { --row-span : 1; }
+.xy-col[data-xy-row-span="2"] { --row-span : 2; }
+.xy-col[data-xy-row-span="3"] { --row-span : 3; }
+.xy-col[data-xy-row-span="4"] { --row-span : 4; }
+.xy-col[data-xy-row-span="5"] { --row-span : 5; }
+.xy-col[data-xy-row-span="6"] { --row-span : 6; }
+.xy-col[data-xy-row-span="7"] { --row-span : 7; }
+.xy-col[data-xy-row-span="8"] { --row-span : 8; }
+.xy-col[data-xy-row-span="9"] { --row-span : 9; }
+.xy-col[data-xy-row-span="10"] { --row-span : 10; }
+.xy-col[data-xy-row-span="11"] { --row-span : 11; }
+.xy-col[data-xy-row-span="12"] { --row-span : 12; }
+
+/* Responsive mode */
+.xy-col[data-xy-col*="xl-1"] { --col : 1; }
+.xy-col[data-xy-col*="xl-2"] { --col : 2; }
+.xy-col[data-xy-col*="xl-3"] { --col : 3; }
+.xy-col[data-xy-col*="xl-4"] { --col : 4; }
+.xy-col[data-xy-col*="xl-5"] { --col : 5; }
+.xy-col[data-xy-col*="xl-6"] { --col : 6; }
+.xy-col[data-xy-col*="xl-7"] { --col : 7; }
+.xy-col[data-xy-col*="xl-8"] { --col : 8; }
+.xy-col[data-xy-col*="xl-9"] { --col : 9; }
+.xy-col[data-xy-col*="xl-10"] { --col : 10; }
+.xy-col[data-xy-col*="xl-11"] { --col : 11; }
+.xy-col[data-xy-col*="xl-12"] { --col : 12; }
+.xy-col[data-xy-col*="xl-auto"] { --col : auto; }
+
+.xy-col[data-xy-start*="xl-auto"] { --start : auto; }
+.xy-col[data-xy-start*="xl-1"] { --start : 1; }
+.xy-col[data-xy-start*="xl-2"] { --start : 2; }
+.xy-col[data-xy-start*="xl-3"] { --start : 3; }
+.xy-col[data-xy-start*="xl-4"] { --start : 4; }
+.xy-col[data-xy-start*="xl-5"] { --start : 5; }
+.xy-col[data-xy-start*="xl-6"] { --start : 6; }
+.xy-col[data-xy-start*="xl-7"] { --start : 7; }
+.xy-col[data-xy-start*="xl-8"] { --start : 8; }
+.xy-col[data-xy-start*="xl-9"] { --start : 9; }
+.xy-col[data-xy-start*="xl-10"] { --start : 10; }
+.xy-col[data-xy-start*="xl-11"] { --start : 11; }
+.xy-col[data-xy-start*="xl-12"] { --start : 12; }
+
+.xy-col[data-xy-row*="xl-"] { --row : auto; }
+.xy-col[data-xy-row*="xl-auto"] { --row : auto; }
+.xy-col[data-xy-row*="xl-1"] { --row : 1; }
+.xy-col[data-xy-row*="xl-2"] { --row : 2; }
+.xy-col[data-xy-row*="xl-3"] { --row : 3; }
+.xy-col[data-xy-row*="xl-4"] { --row : 4; }
+.xy-col[data-xy-row*="xl-5"] { --row : 5; }
+.xy-col[data-xy-row*="xl-6"] { --row : 6; }
+.xy-col[data-xy-row*="xl-7"] { --row : 7; }
+.xy-col[data-xy-row*="xl-8"] { --row : 8; }
+.xy-col[data-xy-row*="xl-9"] { --row : 9; }
+.xy-col[data-xy-row*="xl-10"] { --row : 10; }
+.xy-col[data-xy-row*="xl-11"] { --row : 11; }
+.xy-col[data-xy-row*="xl-12"] { --row : 12; }
+
+.xy-col[data-xy-row-span*="xl-"] { --row-span : auto; }
+.xy-col[data-xy-row-span*="xl-auto"] { --row-span : auto; }
+.xy-col[data-xy-row-span*="xl-1"] { --row-span : 1; }
+.xy-col[data-xy-row-span*="xl-2"] { --row-span : 2; }
+.xy-col[data-xy-row-span*="xl-3"] { --row-span : 3; }
+.xy-col[data-xy-row-span*="xl-4"] { --row-span : 4; }
+.xy-col[data-xy-row-span*="xl-5"] { --row-span : 5; }
+.xy-col[data-xy-row-span*="xl-6"] { --row-span : 6; }
+.xy-col[data-xy-row-span*="xl-7"] { --row-span : 7; }
+.xy-col[data-xy-row-span*="xl-8"] { --row-span : 8; }
+.xy-col[data-xy-row-span*="xl-9"] { --row-span : 9; }
+.xy-col[data-xy-row-span*="xl-10"] { --row-span : 10; }
+.xy-col[data-xy-row-span*="xl-11"] { --row-span : 11; }
+.xy-col[data-xy-row-span*="xl-12"] { --row-span : 12; }
+
+
+.xy-indicator {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999;
+    background-color: hotpink;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.xy-indicator span:not(.xl) {display: none;}
+
+.xy-labels .block { position: relative; }
+.xy-labels .block::before {
+    content: attr(data-block-style);
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    padding: 0.25rem 0.5rem;
+    background-color: aquamarine;
+    color: black;
+    border-radius: 7px;
+}
+
+/* 
+ * Responsiveness 
+ */
+ 
+/* start of desktop styles */
+@media screen and (max-width: 1120px) {
+    .xy-indicator span:not(.lg) {display: none;}
+    .xy-indicator span.lg {display: block;}
+    .xy-indicator { background-color: orangered; }
+
+    /* start of large tablet styles */
+    .xy-col[data-xy-col*="lg-auto"] { --col : auto; }
+    .xy-col[data-xy-col*="lg-1"] { --col : 1; }
+    .xy-col[data-xy-col*="lg-2"] { --col : 2; }
+    .xy-col[data-xy-col*="lg-3"] { --col : 3; }
+    .xy-col[data-xy-col*="lg-4"] { --col : 4; }
+    .xy-col[data-xy-col*="lg-5"] { --col : 5; }
+    .xy-col[data-xy-col*="lg-6"] { --col : 6; }
+    .xy-col[data-xy-col*="lg-7"] { --col : 7; }
+    .xy-col[data-xy-col*="lg-8"] { --col : 8; }
+    .xy-col[data-xy-col*="lg-9"] { --col : 9; }
+    .xy-col[data-xy-col*="lg-10"] { --col : 10; }
+    .xy-col[data-xy-col*="lg-11"] { --col : 11; }
+    .xy-col[data-xy-col*="lg-12"] { --col : 12; }
+
+
+    .xy-col[data-xy-start*="lg-auto"] { --start : auto; }
+    .xy-col[data-xy-start*="lg-1"] { --start : 1; }
+    .xy-col[data-xy-start*="lg-2"] { --start : 2; }
+    .xy-col[data-xy-start*="lg-3"] { --start : 3; }
+    .xy-col[data-xy-start*="lg-4"] { --start : 4; }
+    .xy-col[data-xy-start*="lg-5"] { --start : 5; }
+    .xy-col[data-xy-start*="lg-6"] { --start : 6; }
+    .xy-col[data-xy-start*="lg-7"] { --start : 7; }
+    .xy-col[data-xy-start*="lg-8"] { --start : 8; }
+    .xy-col[data-xy-start*="lg-9"] { --start : 9; }
+    .xy-col[data-xy-start*="lg-10"] { --start : 10; }
+    .xy-col[data-xy-start*="lg-11"] { --start : 11; }
+    .xy-col[data-xy-start*="lg-12"] { --start : 12; }
+
+
+    .xy-col[data-xy-row*="lg-auto"] { --row : auto; }
+    .xy-col[data-xy-row*="lg-1"] { --row : 1; }
+    .xy-col[data-xy-row*="lg-2"] { --row : 2; }
+    .xy-col[data-xy-row*="lg-3"] { --row : 3; }
+    .xy-col[data-xy-row*="lg-4"] { --row : 4; }
+    .xy-col[data-xy-row*="lg-5"] { --row : 5; }
+    .xy-col[data-xy-row*="lg-6"] { --row : 6; }
+    .xy-col[data-xy-row*="lg-7"] { --row : 7; }
+    .xy-col[data-xy-row*="lg-8"] { --row : 8; }
+    .xy-col[data-xy-row*="lg-9"] { --row : 9; }
+    .xy-col[data-xy-row*="lg-10"] { --row : 10; }
+    .xy-col[data-xy-row*="lg-11"] { --row : 11; }
+    .xy-col[data-xy-row*="lg-12"] { --row : 12; }
+
+    .xy-col[data-xy-row-span*="lg-auto"] { --row-span : auto; }
+    .xy-col[data-xy-row-span*="lg-1"] { --row-span : 1; }
+    .xy-col[data-xy-row-span*="lg-2"] { --row-span : 2; }
+    .xy-col[data-xy-row-span*="lg-3"] { --row-span : 3; }
+    .xy-col[data-xy-row-span*="lg-4"] { --row-span : 4; }
+    .xy-col[data-xy-row-span*="lg-5"] { --row-span : 5; }
+    .xy-col[data-xy-row-span*="lg-6"] { --row-span : 6; }
+    .xy-col[data-xy-row-span*="lg-7"] { --row-span : 7; }
+    .xy-col[data-xy-row-span*="lg-8"] { --row-span : 8; }
+    .xy-col[data-xy-row-span*="lg-9"] { --row-span : 9; }
+    .xy-col[data-xy-row-span*="lg-10"] { --row-span : 10; }
+    .xy-col[data-xy-row-span*="lg-11"] { --row-span : 11; }
+    .xy-col[data-xy-row-span*="lg-12"] { --row-span : 12; }
+}
+    
+@media screen and (max-width: 860px) {
+    .xy-indicator span:not(.md) {display: none;}
+    .xy-indicator span.md {display: block;}
+    .xy-indicator { background-color: orchid; }
+
+    /* start of medium tablet styles */
+    .xy-col[data-xy-col*="md-auto"] { --col : auto; }
+    .xy-col[data-xy-col*="md-1"] { --col : 1; }
+    .xy-col[data-xy-col*="md-2"] { --col : 2; }
+    .xy-col[data-xy-col*="md-3"] { --col : 3; }
+    .xy-col[data-xy-col*="md-4"] { --col : 4; }
+    .xy-col[data-xy-col*="md-5"] { --col : 5; }
+    .xy-col[data-xy-col*="md-6"] { --col : 6; }
+    .xy-col[data-xy-col*="md-7"] { --col : 7; }
+    .xy-col[data-xy-col*="md-8"] { --col : 8; }
+    .xy-col[data-xy-col*="md-9"] { --col : 9; }
+    .xy-col[data-xy-col*="md-10"] { --col : 10; }
+    .xy-col[data-xy-col*="md-11"] { --col : 11; }
+    .xy-col[data-xy-col*="md-12"] { --col : 12; }
+
+
+    .xy-col[data-xy-start*="md-auto"] { --start : auto; }
+    .xy-col[data-xy-start*="md-1"] { --start : 1; }
+    .xy-col[data-xy-start*="md-2"] { --start : 2; }
+    .xy-col[data-xy-start*="md-3"] { --start : 3; }
+    .xy-col[data-xy-start*="md-4"] { --start : 4; }
+    .xy-col[data-xy-start*="md-5"] { --start : 5; }
+    .xy-col[data-xy-start*="md-6"] { --start : 6; }
+    .xy-col[data-xy-start*="md-7"] { --start : 7; }
+    .xy-col[data-xy-start*="md-8"] { --start : 8; }
+    .xy-col[data-xy-start*="md-9"] { --start : 9; }
+    .xy-col[data-xy-start*="md-10"] { --start : 10; }
+    .xy-col[data-xy-start*="md-11"] { --start : 11; }
+    .xy-col[data-xy-start*="md-12"] { --start : 12; }
+
+
+    .xy-col[data-xy-row*="md-auto"] { --row : auto; }
+    .xy-col[data-xy-row*="md-1"] { --row : 1; }
+    .xy-col[data-xy-row*="md-2"] { --row : 2; }
+    .xy-col[data-xy-row*="md-3"] { --row : 3; }
+    .xy-col[data-xy-row*="md-4"] { --row : 4; }
+    .xy-col[data-xy-row*="md-5"] { --row : 5; }
+    .xy-col[data-xy-row*="md-6"] { --row : 6; }
+    .xy-col[data-xy-row*="md-7"] { --row : 7; }
+    .xy-col[data-xy-row*="md-8"] { --row : 8; }
+    .xy-col[data-xy-row*="md-9"] { --row : 9; }
+    .xy-col[data-xy-row*="md-10"] { --row : 10; }
+    .xy-col[data-xy-row*="md-11"] { --row : 11; }
+    .xy-col[data-xy-row*="md-12"] { --row : 12; }
+
+    .xy-col[data-xy-row-span*="md-auto"] { --row-span : auto; }
+    .xy-col[data-xy-row-span*="md-1"] { --row-span : 1; }
+    .xy-col[data-xy-row-span*="md-2"] { --row-span : 2; }
+    .xy-col[data-xy-row-span*="md-3"] { --row-span : 3; }
+    .xy-col[data-xy-row-span*="md-4"] { --row-span : 4; }
+    .xy-col[data-xy-row-span*="md-5"] { --row-span : 5; }
+    .xy-col[data-xy-row-span*="md-6"] { --row-span : 6; }
+    .xy-col[data-xy-row-span*="md-7"] { --row-span : 7; }
+    .xy-col[data-xy-row-span*="md-8"] { --row-span : 8; }
+    .xy-col[data-xy-row-span*="md-9"] { --row-span : 9; }
+    .xy-col[data-xy-row-span*="md-10"] { --row-span : 10; }
+    .xy-col[data-xy-row-span*="md-11"] { --row-span : 11; }
+    .xy-col[data-xy-row-span*="md-12"] { --row-span : 12; }
+}
+
+@media screen and (max-width: 479px) {
+    .xy-indicator span:not(.sm) {display: none;}
+    .xy-indicator span.sm {display: block;}
+    .xy-indicator { background-color: lawngreen; }
+
+    /* start of phone styles */
+    /*:root { --xy-grid-cols : 12; }*/
+    
+    .xy-col[data-xy-col*="sm-auto"] { --col : auto; }
+    .xy-col[data-xy-col*="sm-1"] { --col : 1; }
+    .xy-col[data-xy-col*="sm-2"] { --col : 2; }
+    .xy-col[data-xy-col*="sm-3"] { --col : 3; }
+    .xy-col[data-xy-col*="sm-4"] { --col : 4; }
+    .xy-col[data-xy-col*="sm-5"] { --col : 5; }
+    .xy-col[data-xy-col*="sm-6"] { --col : 6; }
+    .xy-col[data-xy-col*="sm-7"] { --col : 7; }
+    .xy-col[data-xy-col*="sm-8"] { --col : 8; }
+    .xy-col[data-xy-col*="sm-9"] { --col : 9; }
+    .xy-col[data-xy-col*="sm-10"] { --col : 10; }
+    .xy-col[data-xy-col*="sm-11"] { --col : 11; }
+    .xy-col[data-xy-col*="sm-12"] { --col : 12; }
+
+
+    .xy-col[data-xy-start*="sm-auto"] { --start : auto; }
+    .xy-col[data-xy-start*="sm-1"] { --start : 1; }
+    .xy-col[data-xy-start*="sm-2"] { --start : 2; }
+    .xy-col[data-xy-start*="sm-3"] { --start : 3; }
+    .xy-col[data-xy-start*="sm-4"] { --start : 4; }
+    .xy-col[data-xy-start*="sm-5"] { --start : 5; }
+    .xy-col[data-xy-start*="sm-6"] { --start : 6; }
+    .xy-col[data-xy-start*="sm-7"] { --start : 7; }
+    .xy-col[data-xy-start*="sm-8"] { --start : 8; }
+    .xy-col[data-xy-start*="sm-9"] { --start : 9; }
+    .xy-col[data-xy-start*="sm-10"] { --start : 10; }
+    .xy-col[data-xy-start*="sm-11"] { --start : 11; }
+    .xy-col[data-xy-start*="sm-12"] { --start : 12; }
+
+
+    .xy-col[data-xy-row*="sm-auto"] { --row : auto; }
+    .xy-col[data-xy-row*="sm-1"] { --row : 1; }
+    .xy-col[data-xy-row*="sm-2"] { --row : 2; }
+    .xy-col[data-xy-row*="sm-3"] { --row : 3; }
+    .xy-col[data-xy-row*="sm-4"] { --row : 4; }
+    .xy-col[data-xy-row*="sm-5"] { --row : 5; }
+    .xy-col[data-xy-row*="sm-6"] { --row : 6; }
+    .xy-col[data-xy-row*="sm-7"] { --row : 7; }
+    .xy-col[data-xy-row*="sm-8"] { --row : 8; }
+    .xy-col[data-xy-row*="sm-9"] { --row : 9; }
+    .xy-col[data-xy-row*="sm-10"] { --row : 10; }
+    .xy-col[data-xy-row*="sm-11"] { --row : 11; }
+    .xy-col[data-xy-row*="sm-12"] { --row : 12; }
+
+    .xy-col[data-xy-row-span*="sm-auto"] { --row-span : auto; }
+    .xy-col[data-xy-row-span*="sm-1"] { --row-span : 1; }
+    .xy-col[data-xy-row-span*="sm-2"] { --row-span : 2; }
+    .xy-col[data-xy-row-span*="sm-3"] { --row-span : 3; }
+    .xy-col[data-xy-row-span*="sm-4"] { --row-span : 4; }
+    .xy-col[data-xy-row-span*="sm-5"] { --row-span : 5; }
+    .xy-col[data-xy-row-span*="sm-6"] { --row-span : 6; }
+    .xy-col[data-xy-row-span*="sm-7"] { --row-span : 7; }
+    .xy-col[data-xy-row-span*="sm-8"] { --row-span : 8; }
+    .xy-col[data-xy-row-span*="sm-9"] { --row-span : 9; }
+    .xy-col[data-xy-row-span*="sm-10"] { --row-span : 10; }
+    .xy-col[data-xy-row-span*="sm-11"] { --row-span : 11; }
+    .xy-col[data-xy-row-span*="sm-12"] { --row-span : 12; }
+
+}

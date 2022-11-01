@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38.453" height="29.921" viewBox="0 0 38.453 29.921">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_124" data-name="Rectangle 124" width="38.1" height="27.007" transform="translate(0 0)" fill="none" stroke="rgba(0,0,0,0)" stroke-width="1.5"/>
+    </clipPath>
+  </defs>
+  <g id="Group_295" data-name="Group 295" transform="translate(38.1 28.464) rotate(180)">
+    <path id="Path_481" data-name="Path 481" d="M.707,13.5l13.15,13.15V.354Z" fill="none" stroke="rgba(0,0,0,0)" stroke-width="1.5"/>
+    <g id="Group_291" data-name="Group 291">
+      <g id="Group_290" data-name="Group 290" clip-path="url(#clip-path)">
+        <path id="Path_482" data-name="Path 482" d="M13.857.354.707,13.5l13.15,13.15" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1.5"/>
+      </g>
+    </g>
+    <path id="Path_483" data-name="Path 483" d="M.707,13.5h0Z" fill="none" stroke="rgba(0,0,0,0)" stroke-width="1.5"/>
+    <g id="Group_293" data-name="Group 293">
+      <g id="Group_292" data-name="Group 292" clip-path="url(#clip-path)">
+        <line id="Line_6" data-name="Line 6" x1="37.393" transform="translate(0.707 13.504)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1.5"/>
+      </g>
+    </g>
+  </g>
+</svg>

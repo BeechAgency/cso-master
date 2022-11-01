@@ -1,0 +1,13 @@
+<svg id="DA_Icon" data-name="DA Icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="65" height="39.036" viewBox="0 0 65 39.036">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_3" data-name="Rectangle 3" width="65" height="39.036" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Group_1" data-name="Group 1" clip-path="url(#clip-path)">
+    <path id="Path_1" data-name="Path 1" d="M54.617,34.158V4.878A4.764,4.764,0,0,0,49.975,0H45.332V39.036h4.643a4.765,4.765,0,0,0,4.643-4.878" transform="translate(-26.76 0)"/>
+    <path id="Path_2" data-name="Path 2" d="M88.616,72.886a4.648,4.648,0,1,0-4.643,4.878,4.763,4.763,0,0,0,4.643-4.878" transform="translate(-46.83 -38.728)" fill="#099"/>
+    <rect id="Rectangle_2" data-name="Rectangle 2" width="9.285" height="39.036"/>
+    <path id="Path_3" data-name="Path 3" d="M125.557,39.036h-9.285L102.585,0h9.286Z" transform="translate(-60.557 0)"/>
+  </g>
+</svg>
