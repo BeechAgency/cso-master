@@ -19,6 +19,12 @@ $GLOBALS['THEME_COLORS'] = array(
 	'warning' => 'c92d2d',
 	'success' => '2dc98d'
 );
+$GLOBALS['DEVELOPMENT_MODE'] = empty( get_option( 'csomaster_development_mode' ) ) ? false : true;
+
+if(!$GLOBALS['DEVELOPMENT_MODE']) {
+	add_filter('acf/settings/show_admin', '__return_false');
+}
+
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
@@ -236,3 +242,33 @@ require get_template_directory() . '/inc/template-utilities.php';
 require get_template_directory() . '/inc/template-updater.php';
 
 
+add_action('admin_init', 'csomaster_setup_theme_settings' );
+
+function csomaster_setup_theme_settings() {
+	register_setting( 'general', 'csomaster_development_mode' );
+	add_settings_field('csomaster_development_mode', 'Enable Development Mode', 'csomaster_development_mode_settings_cb', 'general', 'default' );
+	
+	function csomaster_development_mode_settings_cb($args)
+	{ 
+		$name = 'Enable Development Mode';
+		$id = 'csomaster_development_mode';
+		$checked = '';
+		$options = get_option('csomaster_development_mode');
+		//var_dump($options);
+		$value   = ( !isset( $options[0] ) ) 
+					? null : $options[0];
+		
+		if( $value || $value === 'on' ) { $checked = ' checked="checked" '; }
+
+		// Could use ob_start.
+		$html  = '';
+		$html .= '<input id="' . esc_attr( $id ) . '" 
+		name="' . esc_attr( 'csomaster_development_mode' ) .'" 
+		type="checkbox" ' . $checked . '/>';
+		$html .= '<span class="wndspan">' . esc_html( 'Display visual helper' ) .'</span>';
+		$html .= '<b class="wntip" data-title="'. esc_attr( 'Display visual helpers' ) .'"></b>';
+
+		echo $html;
+	}
+	
+}

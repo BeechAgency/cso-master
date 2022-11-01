@@ -10,6 +10,13 @@
  */
 
 $site_logo = get_field('logo_full_white', 'option') ? get_field('logo_full_white', 'option') : '';
+
+$body_classes = '';
+
+if( !empty($GLOBALS['DEVELOPMENT_MODE']) ) :
+	$body_classes .= $GLOBALS['DEVELOPMENT_MODE'] ? ' xy-labels' : '';
+endif;
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -29,7 +36,7 @@ $site_logo = get_field('logo_full_white', 'option') ? get_field('logo_full_white
 
 </head>
 
-<body <?php body_class('xy-labels'); ?>> 
+<body <?php body_class($body_classes); ?>> 
 <?php wp_body_open(); ?>
 
 <div id="scrollPercentage"></div>
