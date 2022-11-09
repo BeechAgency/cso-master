@@ -147,43 +147,64 @@ function do_gallery_image_logic($image_number, $gallery_count) {
 //  to include in functions.php
 function the_breadcrumb()
 {
-    $showOnHome = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
+    $showOnHome = 1; // 1 - show breadcrumbs on the homepage, 0 - don't show
     $delimiter = '<span class="spacer">/</span>'; // delimiter between crumbs
     $home = 'Home'; // text for the 'Home' link
     $showCurrent = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show
-    $before = '<span class="current">'; // tag before the current crumb
-    $after = '</span>'; // tag after the current crumb
+
+    $before = '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span class="current" itemprop="name">'; // tag before the current crumb
+    $after = '</span></li>'; // tag after the current crumb
+
+    $liStart = '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+    $liEnd = '</li>';
+
+    function position($n) {
+        return '<meta itemprop="position" content="'.$n.'" />';
+    }
+
 
     global $post;
     $homeLink = get_bloginfo('url');
     if (is_home() || is_front_page()) {
         if ($showOnHome == 1) {
-            echo '<div id="crumbs"><a href="' . $homeLink . '">' . $home . '</a></div>';
+            echo '<ol class="breadcrumbs-list" id="crumbs" itemscope itemtype="https://schema.org/BreadcrumbList">'.$liStart.'<a itemprop="item" href="' . $homeLink . '" class="current"><span itemprop="name">' . $home . '</span></a>'.position(1).$liEnd.'</ol>';
         }
     } else {
-        echo '<div id="crumbs"><a href="' . $homeLink . '">' . $home . '</a> ' . $delimiter . ' ';
+        echo '<ol class="breadcrumbs-list" id="crumbs" itemscope itemtype="https://schema.org/BreadcrumbList">'.$liStart.'<a itemprop="item" href="' . $homeLink . '">' . $home . '</a>'.position(1) . $delimiter . $liEnd.' ';
+        
         if (is_category()) {
             $thisCat = get_category(get_query_var('cat'), false);
+            $posN = 2;
             if ($thisCat->parent != 0) {
+                $posN = 3;
                 echo get_category_parents($thisCat->parent, true, ' ' . $delimiter . ' ');
             }
-            echo $before . 'Archive by category "' . single_cat_title('', false) . '"' . $after;
+            echo $before . single_cat_title('', false) . '' . position($posN). $after;
+
         } elseif (is_search()) {
-            echo $before . 'Search results for "' . get_search_query() . '"' . $after;
+            echo $before . 'Search results for "' . get_search_query() . '"' . position(2). $after;
+
+            /* This is not used */
         } elseif (is_day()) {
-            echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . ' ';
-            echo '<a href="' . get_month_link(get_the_time('Y'), get_the_time('m')) . '">' . get_the_time('F') . '</a> ' . $delimiter . ' ';
-            echo $before . get_the_time('d') . $after;
+            echo $liStart.'<a itemprop="item" href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a>' . $delimiter . $liEnd. ' ';
+            echo $liStart.'<a itemprop="item" href="' . get_month_link(get_the_time('Y'), get_the_time('m')) . '">' . get_the_time('F') . '</a>' . $delimiter . $liEnd. ' ';
+            echo $before . get_the_time('d') .position(2). $after;
+
+            /* This is not used */
         } elseif (is_month()) {
-            echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . ' ';
-            echo $before . get_the_time('F') . $after;
+            echo $liStart.'<a itemprop="item" href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a>' . $delimiter .position(2). $liEnd. ' ';
+            echo $before . get_the_time('F') . position(3). $after;
+
+            /* This is not used */
         } elseif (is_year()) {
-            echo $before . get_the_time('Y') . $after;
+            echo $before . get_the_time('Y') . position(2). $after;
+
         } elseif (is_single() && !is_attachment()) {
             if (get_post_type() != 'post') {
                 $post_type = get_post_type_object(get_post_type());
                 $slug = $post_type->rewrite;
-                echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>';
+                echo $liStart.'<a itemprop="item" href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>'.$liEnd;
+                
                 if ($showCurrent == 1) {
                     echo ' ' . $delimiter . ' ' . $before . get_the_title() . $after;
                 }
@@ -191,47 +212,57 @@ function the_breadcrumb()
                 $cat = get_the_category();
                 $cat = $cat[0];
                 $cats = get_category_parents($cat, true, ' ' . $delimiter . ' ');
+
+                $cats = preg_replace("#^\<a href#", "<a itemprop='item' href", $cats);
+
                 if ($showCurrent == 0) {
                     $cats = preg_replace("#^(.+)\s$delimiter\s$#", "$1", $cats);
                 }
-                echo $cats;
+                echo $liStart. $cats .position(2).$liEnd;
                 if ($showCurrent == 1) {
-                    echo $before . get_the_title() . $after;
+                    echo $before . get_the_title() . position(3) .$after;
                 }
             }
         } elseif (!is_single() && !is_page() && get_post_type() != 'post' && !is_404()) {
             $post_type = get_post_type_object(get_post_type());
             echo $before . $post_type->labels->singular_name . $after;
+
         } elseif (is_attachment()) {
             $parent = get_post($post->post_parent);
             $cat = get_the_category($parent->ID);
             $cat = $cat[0];
-            echo get_category_parents($cat, true, ' ' . $delimiter . ' ');
-            echo '<a href="' . get_permalink($parent) . '">' . $parent->post_title . '</a>';
+            //echo get_category_parents($cat, true, ' ' . $delimiter . ' ');
+            echo $liStart.'<a itemprop="item" href="' . get_permalink($parent) . '">' . $parent->post_title . '</a>'.position(2).$liEnd;
             if ($showCurrent == 1) {
                 echo ' ' . $delimiter . ' ' . $before . get_the_title() . $after;
             }
         } elseif (is_page() && !$post->post_parent) {
             if ($showCurrent == 1) {
-                echo $before . get_the_title() . $after;
+                echo $before . get_the_title() . position(2).$after;
             }
         } elseif (is_page() && $post->post_parent) {
             $parent_id  = $post->post_parent;
             $breadcrumbs = array();
             while ($parent_id) {
                 $page = get_page($parent_id);
-                $breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
+                $breadcrumbs[] = '<a itemprop="item" href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
                 $parent_id  = $page->post_parent;
             }
+
             $breadcrumbs = array_reverse($breadcrumbs);
+
             for ($i = 0; $i < count($breadcrumbs); $i++) {
-                echo $breadcrumbs[$i];
+                //echo $liStart.$breadcrumbs[$i].position($i + 2).$liEnd;
+
                 if ($i != count($breadcrumbs)-1) {
-                    echo ' ' . $delimiter . ' ';
+                    echo $liStart.$breadcrumbs[$i].position($i + 2). $delimiter . $liEnd;
+                    //echo ' ' . $delimiter . ' ';
+                } else {
+                    echo $liStart.$breadcrumbs[$i].position($i + 2).$liEnd;
                 }
             }
             if ($showCurrent == 1) {
-                echo ' ' . $delimiter . ' ' . $before . get_the_title() . $after;
+                echo ' ' . $delimiter . ' ' . $before . get_the_title() .position($i + 2). $after;
             }
         } elseif (is_tag()) {
             echo $before . 'Posts tagged "' . single_tag_title('', false) . '"' . $after;
@@ -251,6 +282,6 @@ function the_breadcrumb()
                 echo ')';
             }
         }
-        echo '</div>';
+        echo '</ol>';
     }
 } // end the_breadcrumb()

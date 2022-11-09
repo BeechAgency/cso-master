@@ -81,6 +81,18 @@ body {
 	box-sizing: border-box;
 }
 
+.breadcrumbs-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    /* gap: 1rem; */
+}
+.breadcrumbs-list li:nth-child(1), .breadcrumbs-list li:nth-child(2) {
+	line-break: normal;
+	white-space: nowrap;
+}
+
 pre {
     white-space: pre-wrap;
 }
@@ -400,9 +412,10 @@ section.block {
     outline: none;
 }
 
-div#crumbs a {
+#crumbs a {
     opacity: 0.6;
     transition: all 150ms ease;
+    display: inline;
 }
 
 div#crumbs a:hover {
@@ -411,6 +424,7 @@ div#crumbs a:hover {
 
 #crumbs span.spacer {
     opacity: 0.6;
+    margin-inline: 0.75rem;
 }
 
 header .button-row {
