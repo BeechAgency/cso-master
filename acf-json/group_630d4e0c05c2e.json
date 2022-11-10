@@ -388,8 +388,8 @@
             }
         ]
     ],
-    "menu_order": 1,
-    "position": "normal",
+    "menu_order": 2,
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -397,5 +397,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1661822581
+    "modified": 1668057716
 }
