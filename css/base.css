@@ -184,6 +184,13 @@ a {
     background-color: var(--base-background-color, white);
     color: var(--text-color);
 }
+.btn-align-center { text-align: center; }
+.btn-align-left { text-align: left; }
+.btn-align-right { text-align: right; }
+
+.btn.align-center {
+	margin-inline: auto;
+}
 
 figure {
 	margin: 0;
@@ -438,7 +445,7 @@ div.BEECH_notifications {
 
 ul.in-page-nav-list {
     margin: 0;
-    padding: 1.75rem 0;
+    padding: 1.25rem 0;
     list-style: none;
     display: flex;
     gap: 1rem;

@@ -4,7 +4,7 @@ Theme URI: https://beech.agency/
 Author: Beech Agency
 Author URI: https://beech.agency/
 Description: A theme for the Catholic Schools Office Maitland Newcastle's High Schools
-Version: 0.4
+Version: 0.5
 Tested up to: 6.3
 Requires PHP: 8.1
 License: GNU General Public License v2 or later
@@ -19,16 +19,16 @@ csomaster is based on Underscores https://underscores.me/, (C) 2012-2020 Automat
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 --------------------------------------------------------------*/
-@import url('css/normalize.css');
+@import url('css/normalize.css?v=0.5');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap');
 
-@import url('css/xylem.css');
-@import url('css/fonts.css');
-@import url('css/base.css');
-@import url('css/layout.css');
-@import url('css/nav.css');
-@import url('css/footer.css');
-@import url('css/forms.css');
+@import url('css/xylem.css?v=0.5');
+@import url('css/fonts.css?v=0.5');
+@import url('css/base.css?v=0.5');
+@import url('css/layout.css?v=0.5');
+@import url('css/nav.css?v=0.5');
+@import url('css/footer.css?v=0.5');
+@import url('css/forms.css?v=0.5');
 
-@import url('css/_tablet.css');
-@import url('css/_mobile.css');
+@import url('css/_tablet.css?v=0.5');
+@import url('css/_mobile.css?v=0.5');

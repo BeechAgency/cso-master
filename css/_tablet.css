@@ -130,7 +130,7 @@
     .gallery-wrapper figure figcaption { opacity: 1; bottom: 0.5rem; }
 
 
-    .block.text-block__image_text.image-full .image-wrapper { justify-content: center;}
+    .block.text-block__image_text.image-full .image-wrapper {justify-content: center;}
     .block.text-block__image_text.image-full .image-wrapper img {
         max-width: calc(100% + var(--xy-gutter)*2);
         width: calc(100% + var(--xy-gutter)*2);
@@ -180,4 +180,21 @@
     .block.cards-block__article-list {
         padding-bottom: 6rem;
     }
+    .block.image-full .video {
+        height: calc( 100vw / ( 16 / 9) );
+        max-width: 100vw;
+        width: 100vw;
+        /* align-self: center; */
+    }
+
+    .block.image-full .video.vimeo {
+        max-width: 100%;
+        height: auto;
+    }
+    .block.image-inset iframe.video {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
 }

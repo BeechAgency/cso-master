@@ -4,13 +4,15 @@
 }
 
 .block.text-block__quote, .block.text-block__text, .block.images-block__carousel-gallery, .block.images-block__images, .block.cards-block__feature, .block.cards-block__image-cards, .block.text-block__tabs, .block.text-block__list-items, .block.text-block__para-list, .block.cards-block__article-list {
-    padding-block: 10rem;
+    padding-block: 8rem;
 }
 
 /* Image Block Dogs */
 .block.image-full .image-wrapper img {
     max-width: calc(100% + var(--xy-gutter));
     width: calc(100% + var(--xy-gutter));
+    height: 100%;
+    object-fit: cover;
 }
 
 .block.image-full .image-wrapper:first-child {
@@ -29,6 +31,14 @@
 .block.images-block__full img {
     max-width: calc(100% + var(--xy-gutter) * 2);
     width: calc(100% + var(--xy-gutter) * 2);
+}
+
+.block.images-block__full .video {
+    width: calc(100% + var(--xy-gutter) * 2);
+    max-width: calc(100% + var(--xy-gutter) * 2);
+    height: calc( 100vw / ( 16 / 9) );
+    aspect-ratio: 16 / 9;
+    display: block;
 }
 .block.images-block__full {
     padding-block: 0;
@@ -454,4 +464,26 @@ section.block.post-block__post-grid {
 	position: absolute;
 	right: -3rem;
 	top: 0;
+}
+
+
+.text-block__image_text.image-full .text-wrapper {
+	padding-block: 2rem;
+}
+
+.block.text-block__list-items.faq-list > .xy-grid {
+    align-content: start;
+    align-items: start;
+}
+
+.block.text-block__image_text.image-inset video.video {
+    max-width: 100%;
+}
+
+.block.image-full .video {
+    aspect-ratio: 16 / 9;
+    height: calc( 50vw / ( 16 / 9) );
+    max-width: calc(100% + var(--xy-gutter));
+    width: calc(100% + var(--xy-gutter));
+    object-fit: cover;
 }

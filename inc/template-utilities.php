@@ -41,9 +41,43 @@ function get_youtube_id($url) {
     return $params['v'];
 }
 
+function get_vimeo_id($url) {
+    $exploded = explode('?', $url);
+    $exploded = explode('/', $exploded[0]);
+
+    $length = count($exploded);
+
+    if($length !== 4) return '';
+
+    return $exploded[$length - 1];
+}
+
 /* Args decifer */
 function get_args_value($args, $prop) {
     return !empty( $args[ $prop] ) ? $args[ $prop ] : '';
+}
+
+
+/* Handle video URL */
+function do_video_field($url, $type) {
+    if(empty($url)) return;
+
+    if($type === 'url') {
+        return "<video class='video' autoplay muted loop playsinline><source src='$url' type='video/mp4'></video>";
+    }
+    elseif($type === 'youtube') {
+        $id = get_youtube_id($url);
+        return "<iframe class='video youtube' id='video' width='100%' height='600' src='https://www.youtube.com/embed/$id?rel=0&modestbranding=1&controls=0&color=009999' title='YouTube video player' frameborder='0' allow='autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+
+    } elseif($type === 'vimeo') { //347119375 // 107178137
+
+        $id = get_vimeo_id($url);
+
+        return "<iframe class='video vimeo' id='video' width='100%' height='600' src='https://player.vimeo.com/video/$id?title=0&portrait=0&byline=0&color=009999' title='Vimeo video player' frameborder='0' allow='autoplay; clipboard-write; encrypted-media; picture-in-picture' allowfullscreen></iframe>";
+    }
+    else {
+        return $url;
+    }
 }
 
 /* Helper for wrapping stuff */
@@ -61,6 +95,10 @@ function do_a_cta($args) {
     $link = $args['link'];
     $text = $args['text'];
     $classes = $args['classes'];
+
+    $alignment = !empty($args['align']) ? ' align-'.$args['align'] : '';
+
+    $classes .= $alignment;
 
     if(empty($link) || empty($text)) return false;
 

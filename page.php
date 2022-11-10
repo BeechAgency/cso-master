@@ -29,7 +29,8 @@ get_header();
 					<?php the_content(); ?>
 				</div>
 			</div>
-		<?php endif; */
+		<?php endif; 
+		*/
 	endwhile; // End of the loop.
 	?>
 

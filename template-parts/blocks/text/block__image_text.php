@@ -3,7 +3,16 @@
     $image = $fields['image'];
 
 
-    $image_section = "<div class='xy-col image-wrapper' data-xy-col='xl-6 lg-6 md-12' data-xy-start='xl-7 lg-7 md-auto'>$image</div>";
+    $video_group = get_sub_field('_video');
+    $video_url = $video_group['video'];
+    $video_type = $video_group['type'];
+
+    $media_type = !empty($video_url) ? 'video' : 'image';
+    
+    $output_media = $media_type === 'image' ? $image : do_video_field($video_url, $video_type);
+
+
+    $image_section = "<div class='xy-col image-wrapper type-$media_type' data-xy-col='xl-6 lg-6 md-12' data-xy-start='xl-7 lg-7 md-auto'>$output_media</div>";
 
     $grid_cols = "xl-4 lg-5 md-12";
     $grid_start = "xl-1 lg-1 md-1";
@@ -12,7 +21,7 @@
         $grid_cols = "xl-4 lg-5 md-12";
         $grid_start = "xl-8 lg-8 md-auto sm-auto";
 
-        $image_section = "<div class='xy-col image-wrapper' data-xy-col='xl-6 lg-6 md-12'>$image</div>";
+        $image_section = "<div class='xy-col image-wrapper type-$media_type' data-xy-col='xl-6 lg-6 md-12'>$output_media</div>";
 
         echo $image_section;
     endif;

@@ -71,6 +71,9 @@
                 break;
         }
     endif;    
+
+    //$cta_group = '<div class="button-group">'.do_a_cta($fields['cta']).do_a_cta($fields['cta_secondary']).'</div>';
+
 ?>
 <div class="xy-col text-wrapper" data-xy-col="<?= $grid_cols ?>" data-xy-start="<?= $grid_start ?>" >
     <?php /* conditionally_output_field($fields['subtitle'], '<h5>', '</h5>'); ?>
@@ -80,7 +83,9 @@
     <?php 
     if($style === 'basic' || $style === 'full-feature' || $style === 'form')  : 
         echo apply_filters('the_content', $fields['content']);
-        do_a_cta($fields['cta']);
+        if ( !empty($fields['cta']) ) {
+            echo '<p class="btn-align-'.$fields['cta']['align'].'">'.do_a_cta($fields['cta']).'</p>';
+        }
     endif; ?>
 </div>
 <?php
