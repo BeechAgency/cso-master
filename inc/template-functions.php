@@ -168,6 +168,8 @@ function get_header_data($pageId = null) {
     $header_data['header_image_mobile'] = get_field('header_image_mobile', $pageId);
     $header_data['header_video'] = get_field('header_video', $pageId);
 
+	$header_data['header_gradient'] = get_field('header_gradient', $pageId);
+
 	if(is_single()) {
 		$header_data['header_text_alignment'] = 'text-left';
 	}

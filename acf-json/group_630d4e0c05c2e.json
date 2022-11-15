@@ -129,7 +129,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -138,6 +138,25 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_6373136a85858",
+            "label": "Display subtle gradient?",
+            "name": "header_gradient",
+            "type": "true_false",
+            "instructions": "If the menu is having legibility issues or the top of the image is really light in colour.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
         },
         {
             "key": "field_630d4fe66d357",
@@ -397,5 +416,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1668057716
+    "modified": 1668486072
 }

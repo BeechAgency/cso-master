@@ -469,3 +469,24 @@ ul.in-page-nav-list .in-page-nav-item:not(:last-child) {
 .text-block__image_text .text-wrapper > .btn {
 	margin-top: 1rem;
 }
+
+
+header.has-top-gradient {
+    position: relative;
+}
+
+header.has-top-gradient::after {
+    content: '';
+    top: 0;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    background: linear-gradient(180deg, rgb(0 0 0 / 40%) 0%, rgb(0 0 0 / 0%) 89%);
+    height: 10vh;
+    z-index: 0;
+}
+
+header.has-top-gradient > div {
+    position: relative;
+    z-index: 1;
+}

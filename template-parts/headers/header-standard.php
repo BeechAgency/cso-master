@@ -1,13 +1,25 @@
 <?php
     $header_classes = ''. $args['header_background_color'] .' '. $args['header_text_color'] .' '. $args['header_text_alignment'];
 
+    $header_classes .= $args['header_gradient'] ? ' has-top-gradient' : '';
+
     $background_image = wp_get_attachment_image_src($args['header_image'], 'full');
 
     $flex_align = $args['header_text_alignment'] == 'text-center' ? 'align-center' : 'align-start';
 
     $header_classes .= !empty($args['header_video']) ? ' has-video' : '';
 
-    $background_style = !empty($background_image[0]) ? 'style="background: linear-gradient(0deg, var(--base-background-color) 0%, transparent 35%), url('.$background_image[0].')  no-repeat top center;"' : '';
+    $background_image_position = !empty($background_image[0]) ? 'top center' : '';
+
+    // Handle the image position
+    if(!empty($background_image[0])) {
+        $background_image_id = attachment_url_to_postid($background_image[0]);
+        $background_meta = get_post_meta( $background_image_id, 'bg_pos_desktop' );
+
+        $background_image_position = count($background_meta) > 0 ? $background_meta[0] : $background_image_position;
+    }
+
+    $background_style = !empty($background_image[0]) ? 'style="background: linear-gradient(0deg, var(--base-background-color) 0%, transparent 35%), url('.$background_image[0].')  no-repeat '.$background_image_position.'; background-size: cover;"' : '';
 
     if(!empty($args['header_video'])) {
         $background_style = 'style="background: linear-gradient(0deg, var(--base-background-color) 0%, transparent 35%, transparent 80%, rgba(0,0,0, 0.5) 100%);"';
