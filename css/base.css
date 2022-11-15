@@ -481,8 +481,8 @@ header.has-top-gradient::after {
     width: 100%;
     left: 0;
     position: absolute;
-    background: linear-gradient(180deg, rgb(0 0 0 / 40%) 0%, rgb(0 0 0 / 0%) 89%);
-    height: 10vh;
+    background: linear-gradient(180deg, rgb(0 0 0 / 60%) 0%, rgb(0 0 0 / 0%) 80%);
+    height: 20vh;
     z-index: 0;
 }
 
