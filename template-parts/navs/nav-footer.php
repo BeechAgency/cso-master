@@ -36,9 +36,11 @@
             <?php endif; ?>
 
             <?= conditionally_output_field(get_acf_image('logo','full','main','option'), '<div class="footer-logo">','</div>'); ?>
+            
         </div>
         <nav class="xy-col" data-xy-col="xl-6 lg-6 md-12 sm-12" data-xy-start="xl-7 lg-7 md-auto sm-auto">
             <?php csomaster_nav_location('footer'); ?>
+            <?= conditionally_output_field(get_field('acknowledgement','option'), '<div class="footer-acknowledgement"><p class="small">', '</p></div>' ); ?>
         </nav>
     </div>
 

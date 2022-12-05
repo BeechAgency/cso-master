@@ -25,13 +25,13 @@
 
     <?php else: ?>
     <div class="nav-inner xy-flex  <?= $nav_classes ?>">
-        <div class="xy-col" data-xy-col="xl-3 lg-3 md-6 sm-3">
+        <div class="xy-col" data-xy-col="xl-3 lg-3 md-6 sm-6">
             <a href="/"><?= get_acf_image('logo_white', 'full', 'main', 'option', 'logo') ?></a>
         </div>
         <div class="xy-col" data-xy-col="xl-7 lg-7 md-auto sm-auto" data-xy-items="justify-center">
             <?php csomaster_nav_location('header-primary'); ?>
         </div>
-        <div class="xy-col" data-xy-col="xl-2 lg-2 md-6 sm-9">
+        <div class="xy-col" data-xy-col="xl-2 lg-2 md-6 sm-6">
             <?php csomaster_nav_location('header-utility'); ?>
         </div>
     </div>
