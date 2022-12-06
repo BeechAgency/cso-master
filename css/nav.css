@@ -57,7 +57,7 @@ nav ul {
 }
 
 /* Header */
-main > header {
+main > header:not(.header-alternative.has-image) {
     padding-top: 2rem;
     padding-bottom: 4rem;
 }

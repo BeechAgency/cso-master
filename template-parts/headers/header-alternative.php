@@ -1,7 +1,13 @@
 <?php
     $header_classes = ''. $args['header_background_color'] .' '. $args['header_text_color'] .' '. $args['header_text_alignment'] .' header-alternative';
 
+    $post_type = get_post_type();
+
     $background_image = wp_get_attachment_image_src($args['header_image'], 'full');
+
+    if($post_type === 'post' && empty($background_image)) {
+        $background_image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full');
+    }
 
     $flex_align = $args['header_text_alignment'] == 'text-center' ? 'align-center' : 'align-start';
 
