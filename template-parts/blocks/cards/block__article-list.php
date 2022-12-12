@@ -19,7 +19,9 @@
         'options' => array(
             'wrapper' => 'article',
             'class' => 'card carousel-cell '.$card_background_color,
-        )
+        ), 
+        'orderby' => 'date',
+        'order'   => 'DESC'
     );
 
 

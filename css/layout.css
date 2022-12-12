@@ -370,7 +370,7 @@ section.block.images-block__carousel-gallery, .block.cards-block__article-list {
     align-content: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    background-color: var(--primary-light);
+    /* background-color: var(--primary-light); */
 }
 .post-list .card img {
     width: 100%;
@@ -431,6 +431,7 @@ section.block.post-block__post-grid {
     /* min-height: 40rem; */
     box-shadow: 3px 3px 11px -2px rgb(0 0 0 / 14%);
     margin-bottom: 1rem;
+    height: max-content;
 }
 
 .card.carousel-cell:last-child {
@@ -438,7 +439,7 @@ section.block.post-block__post-grid {
 }
 
 .card.carousel-cell .card-content {
-    min-height: 20rem;
+    min-height: 22rem;
 }
 
 .post-carousel {--gap-modifier:calc( (var(--grid-cols) - var(--item-cols)) * var(--xy-col-gap)/ var(--grid-cols)  );--item-cols: 4;--grid-cols: 12;}
@@ -447,6 +448,7 @@ section.block.post-block__post-grid {
     aspect-ratio: 4 / 3;
     object-fit: cover;
     object-position: top;
+    width: 100%;
 }
 
 
@@ -486,4 +488,12 @@ section.block.post-block__post-grid {
     max-width: calc(100% + var(--xy-gutter));
     width: calc(100% + var(--xy-gutter));
     object-fit: cover;
+}
+
+article.post p > iframe {
+    display: block;
+    margin-inline: auto;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
 }

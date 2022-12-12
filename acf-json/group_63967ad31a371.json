@@ -1,0 +1,114 @@
+{
+    "key": "group_63967ad31a371",
+    "title": "Posts Page Options",
+    "fields": [
+        {
+            "key": "field_63967ad96a0a3",
+            "label": "Posts List Background Colour",
+            "name": "background_color",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "has-transparent-background-color": "None",
+                "has-black-background-color": "Black",
+                "has-white-background-color": "White",
+                "has-primary-dark-background-color": "Primary Dark",
+                "has-primary-light-background-color": "Primary Light",
+                "has-secondary-dark-background-color": "Secondary Dark",
+                "has-secondary-light-background-color": "Secondary Light"
+            },
+            "default_value": "has-transparent-background-color",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_63967b216a0a4",
+            "label": "Post Item Background Colour",
+            "name": "background_color_cards",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "has-transparent-background-color": "None",
+                "has-black-background-color": "Black",
+                "has-white-background-color": "White",
+                "has-primary-dark-background-color": "Primary Dark",
+                "has-primary-light-background-color": "Primary Light",
+                "has-secondary-dark-background-color": "Secondary Dark",
+                "has-secondary-light-background-color": "Secondary Light"
+            },
+            "default_value": "has-white-background-color",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_63967b666a0a6",
+            "label": "Post Text Colour",
+            "name": "text_color",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "has-black-color": "Black",
+                "has-white-color": "White",
+                "has-primary-dark-color": "Primary Dark",
+                "has-primary-light-color": "Primary Light",
+                "has-secondary-dark-color": "Secondary Dark",
+                "has-secondary-light-color": "Secondary Light"
+            },
+            "default_value": "has-black-color",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "posts_page"
+            }
+        ]
+    ],
+    "menu_order": 4,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1670806417
+}

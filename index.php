@@ -14,8 +14,19 @@
 
 get_header();
 
+$page_for_posts = get_option( 'page_for_posts' );
+$page_id = get_the_ID();
+
+if(is_home()) {
+    $page_id = $page_for_posts;
+}
+
+$section_bg = get_field('background_color', $page_id);
+$card_bg = get_field('background_color_cards', $page_id);
+$card_text = get_field('text_color', $page_id);
+
 ?>
-	<section class="block post-block__post-grid has-white-background-color has-black-color">
+	<section class="block post-block__post-grid <?= $section_bg. ' '.$card_text ?>">
 		<?php
 		if ( have_posts() ) :
 			if ( is_home() && ! is_front_page() ) :
@@ -37,7 +48,13 @@ get_header();
 					* called content-___.php (where ___ is the Post Type name) and that will be used instead.
 					*/
 
-					get_template_part( 'template-parts/parts/post', 'item', array('wrapper' => 'li', 'class' => 'card xy-col', 'grid' => 'xl-4 lg-4 md-4 sm-6') );
+					get_template_part( 'template-parts/parts/post', 'item', 
+						array(
+							'wrapper' => 'li', 
+							'class' => "card xy-col $card_bg", 
+							'grid' => 'xl-4 lg-4 md-4 sm-6'
+							) 
+						);
 
 					$n++;
 				endwhile;
