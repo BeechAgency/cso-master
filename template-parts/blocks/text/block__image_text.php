@@ -4,8 +4,8 @@
 
 
     $video_group = get_sub_field('_video');
-    $video_url = $video_group['video'];
-    $video_type = $video_group['type'];
+    $video_url = !empty($video_group) ? $video_group['video'] : null ;
+    $video_type = !empty($video_group) ? $video_group['type'] : null ;
 
     $media_type = !empty($video_url) ? 'video' : 'image';
     

@@ -2,7 +2,7 @@
     $fields = $args;
     $image = $fields['image'];
 
-    $gallery = get_sub_field('_gallery');
+    $gallery = !empty($fields['gallery_ids']) ? $fields['gallery_ids'] : get_sub_field('_gallery');
     $gallery_count = count($gallery);
 
     $image_section = "<div class='xy-col image-wrapper' data-xy-col='xl-6 lg-6 md-12' data-xy-start='xl-7 lg-7 md-auto'>$image</div>";
@@ -31,6 +31,7 @@
             $grid_start = "";
             break;
     endswitch;
+
 ?>
 <div class="xy-col gallery-wrapper" data-xy-col="12">
     <div class="xy-grid">

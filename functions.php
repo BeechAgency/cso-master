@@ -215,6 +215,11 @@ require get_template_directory() . '/inc/custom-header.php';
 require get_template_directory() . '/inc/template-tags.php';
 
 /**
+ * Hooks which enhance the theme by hooking into WordPress.
+ */
+require get_template_directory() . '/inc/template-hooks.php';
+
+/**
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';

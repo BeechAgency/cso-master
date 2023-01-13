@@ -17,7 +17,14 @@
     $start3 = 'auto';
     $start4 = 'auto';
 
-    $column_count = get_sub_field('_columns') > 0 ? count(get_sub_field('_columns')) : 0;
+    $column_count = 0;
+
+    if(!empty($fields['column_count'])) {
+        $column_count = $fields['column_count'];
+    } else {
+        $column_count = get_sub_field('_columns') > 0 ? count(get_sub_field('_columns')) : 0;
+    }
+    
     // switch statement to determine column count and output
 
     if($style === 'basic') :

@@ -1,15 +1,15 @@
 <?php 
     $fields = $args;
 
-    $title_alignment = get_sub_field('_title_alignment');
-    $posts_type = get_sub_field('_posts_type');
+    $title_alignment = !empty($fields['title_alignment']) ? $fields['title_alignment'] : get_sub_field('_title_alignment');
+    $posts_type = !empty($fields['posts_type']) ? $fields['posts_type'] : get_sub_field('_posts_type');
 
-    $card_background_color = get_sub_field('_background_color_cards');
+    $card_background_color = !empty($fields['background_color_cards']) ? $fields['background_color_cards'] : get_sub_field('_background_color_cards');
 
     $list = array();
 
-    $posts = get_sub_field('_posts');
-    $category = get_sub_field('_categories');
+    $posts = !empty($fields['posts']) ? $fields['posts'] : get_sub_field('_posts');
+    $category = !empty($fields['filter_categories']) ? $fields['filter_categories'] : get_sub_field('_categories');
 
 
     $postListOptions = array(
@@ -38,16 +38,10 @@
         endif;
     endif;
 
-
-
-    /* data-flickity='{ "cellAlign": "left", "prevNextButtons": true, "autoPlay": false }' */
-
 ?>
 
 <div class="xy-col text-wrapper" data-xy-col="12">
     <div class="heading-group <?= $title_alignment ?>">
-        <?php /* conditionally_output_field($fields['subtitle'], '<h5>', '</h5>'); */ ?>
-        <?php /* conditionally_output_field($fields['title'], '<h2>', '</h2>'); */ ?>
         <?= apply_filters('the_content', $fields['title']); ?>
     </div>
     <?php if($fields['style'] === 'style-image-icon') echo $cta_row; ?>

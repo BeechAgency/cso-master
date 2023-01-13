@@ -41,4 +41,4 @@ endif;
 
 <div id="scrollPercentage"></div>
 <main id="page" class="site">
-	<?php get_template_part('template-parts/headers/header', ''); ?>
+	<?php get_template_part('template-parts/headers/header'); ?>
