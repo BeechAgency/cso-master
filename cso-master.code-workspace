@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../../plugins/beech_notifications"
+		},
+		{
+			"path": "../cso-master-child-head-office"
 		}
 	],
 	"settings": {}
