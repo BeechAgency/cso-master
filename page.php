@@ -18,20 +18,24 @@ get_header();
 
 
 	<?php
-	while ( have_posts() ) :
-		the_post();
+	if( have_posts() ) :
 
-		get_template_part( 'template-parts/content', 'page' );
-		/*
-		if( '' !== get_post()->post_content ) :?>
-			<div class="row">
-				<div class="entry-content">
-					<?php the_content(); ?>
+		
+		while ( have_posts() ) :
+			the_post();
+
+			get_template_part( 'template-parts/content', 'page' );
+			/*
+			if( '' !== get_post()->post_content ) :?>
+				<div class="row">
+					<div class="entry-content">
+						<?php the_content(); ?>
+					</div>
 				</div>
-			</div>
-		<?php endif; 
-		*/
-	endwhile; // End of the loop.
+			<?php endif; 
+			*/
+		endwhile; // End of the loop.
+	endif;
 	?>
 
 

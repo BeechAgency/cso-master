@@ -92,6 +92,23 @@ function get_term_dates( $args = array() ) {
 	return $output;
 }
 
+function the_term_dates( $args = array() ) {
+	$classes = !empty($args['classes']) ? $args['classes'] : 'term-dates';
+
+	$output = array();
+
+	$dates = get_field('school_term_dates', 'option');
+
+	if( have_rows('school_term_dates', 'option') ):
+		while ( have_rows('school_term_dates', 'option') ) : the_row();
+			$term = get_sub_field('term') === 'false' ? '' : get_sub_field('term') ;
+			$output[] = array('term' => $term, 'text' => get_sub_field('date_text') );
+		endwhile;
+	endif;
+
+	return $output;
+}
+
 // register and then enqueue all the navigation menus for the site
 function csomaster_register_nav_menu() {
 	register_nav_menu('header-primary', 'Header Menu');
