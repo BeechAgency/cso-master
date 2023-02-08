@@ -329,7 +329,6 @@ ul.term-dates li > span { font-weight: var(--fw-bold); text-transform: uppercase
     opacity: 1;
 }
 
-
 .open .nav-mega .menu[data-menu-level="0"] > li {
     transform: translate(0, 0);
     opacity: 1;
@@ -341,6 +340,8 @@ ul.term-dates li > span { font-weight: var(--fw-bold); text-transform: uppercase
     align-items: center;
     position: relative;
 }
+
+.nav-mega .menu-item.no-children svg { display: none; }
 
 /* Mobile Mega Menu */
 #menu-mega-menu {
