@@ -191,6 +191,9 @@ a {
 .btn.align-center {
 	margin-inline: auto;
 }
+.btn + .btn {
+	margin-left: 1rem;
+}
 
 figure {
 	margin: 0;
@@ -377,6 +380,11 @@ section.block {
 .post-carousel .flickity-prev-next-button.previous {
     right: calc(var(--xy-gutter) + 5rem);
     left: unset;
+}
+
+.post-carousel .card-text {
+	max-height: 7rem;
+	overflow: hidden;
 }
 
 .site-search-outer .search-form {

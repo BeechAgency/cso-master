@@ -12,6 +12,9 @@
     $flex_align = $args['header_text_alignment'] == 'text-center' ? 'align-center' : 'align-start';
 
     $header_classes .= empty($background_image) ? ' no-image' : ' has-image';
+
+    $text_cols = !empty($background_image) ? 'xl-6 lg-6 md-7 sm-12' : '12';
+    
 ?>
 
 <?php get_template_part( 'template-parts/navs/nav', 'primary', $args ); ?>
@@ -20,7 +23,7 @@
 
     <div class="xy-flex has-gutter" data-xy-flex="row space-between" data-xy-items="<?= $flex_align ?>" data-xy-col="12">
 
-        <div class="text-wrapper xy-col" data-xy-col="xl-6 lg-6 md-7 sm-12" data-xy-items="align-center">
+        <div class="text-wrapper xy-col" data-xy-col="<?= $text_cols ?>" data-xy-items="align-center">
             <?php get_template_part( 'template-parts/headers/components/layout', 'text', $args ); ?>
         </div>
         <?php if(!empty($background_image)): ?>

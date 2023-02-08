@@ -153,7 +153,7 @@ section.block.images-block__carousel-gallery, .block.cards-block__article-list {
 }
 
 .card.style-card .card-content {
-    padding: 1rem;
+    padding: 1.5rem;
 }
 .card.style-card .icon {
     margin-left: 0;
@@ -435,7 +435,7 @@ section.block.post-block__post-grid {
 }
 
 .card.carousel-cell:last-child {
-    margin-right: var(--xy-gutter);
+    /* margin-right: var(--xy-gutter); */
 }
 
 .card.carousel-cell .card-content {
