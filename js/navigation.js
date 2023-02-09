@@ -144,9 +144,6 @@
 		item.classList.add('no-children');
 	})
 
-	console.log(parentIds);
-
-
 	megaMenuGroups.forEach (  menuGroup => {
 		const dataset = menuGroup.dataset;
 
