@@ -25,6 +25,14 @@
         border-right: none;
     }
 
+    .site-search-outer .search-form {
+        max-width: 100%;
+    }
+
+.site-search-outer .search-form > label {
+    max-width: calc(100% - 3rem);
+}
+
     /* Blocks */
     .gallery-wrapper figure figcaption { display: none; }
 

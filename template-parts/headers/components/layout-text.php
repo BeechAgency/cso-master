@@ -18,9 +18,13 @@
     endif; 
 ?>
 <?= $args['header_text']; ?>
+<?php if(
+    !empty($args['header_text_cta']['link']) || 
+    !empty($args['header_text_cta_secondary']['link'])) : ?>
 <div class="button-row flex-row">
     <?= do_a_cta($args['header_text_cta']); ?>
     <?= do_a_cta($args['header_text_cta_secondary']); ?>
 </div>
+<?php endif; ?>
 
 <?php csomaster_after_custom_header_text_layout(); ?>

@@ -13,7 +13,7 @@ if(is_single() && get_post_type() !== 'post') {
     $header_data = apply_filters('csomaster_custom_header_data', 'csomaster_set_custom_header_data');
 }
 
-$header_template = $header_data['header_style'] === 'full' ? 'standard' : 'alternative';
+$header_template = $header_data['header_style'] === 'full' ? 'standard' : ( $header_data['header_style'] === 'slider' ? 'slider' : 'alternative' );
 
 $header_data['header_template'] = $header_template;
 

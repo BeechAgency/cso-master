@@ -173,7 +173,7 @@ a {
 .btn:hover {
 	background-color: var(--text-color);
 	color: var(--base-background-color, white);
-	box-shadow: 0px 0px 13px -5px var(--text-color, black);
+	/* box-shadow: 0px 0px 13px -5px var(--text-color, black); */
 }
 .btn.btn-secondary {
 	color: var(--base-background-color, white);
@@ -426,6 +426,7 @@ section.block {
     background-repeat: no-repeat;
     background-position: center left;
     padding: 0.5rem 0.5rem 0.5rem 3.5rem;
+    max-width: 100%;
 }
 
 .search-form input[type="text"]:hover, .search-form input[type="text"]:focus {

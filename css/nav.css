@@ -57,7 +57,7 @@ nav ul {
 }
 
 /* Header */
-main > header:not(.header-alternative.has-image) {
+main > header:not(.header-alternative.has-image, .has-slider) {
     padding-top: 2rem;
     padding-bottom: 4rem;
 }
@@ -577,3 +577,90 @@ footer .social a img {
     margin-top: 2rem;
 }
 .footer-acknowledgement p { margin: 0;}
+
+
+header.has-slider {
+    position: relative;
+    /* padding-top: 2rem; */
+    overflow: hidden;
+}
+
+header.has-slider .header-slider-wrapper {
+    width: 100vw;
+    /*height: 100vh;
+    max-width: 100vh;*/
+}
+
+header.has-slider .header-slide {
+    width: 100%;
+}
+
+header.has-slider > .xy-flex {
+    position: absolute;
+    margin-top: 2rem;
+    z-index: 5;
+}
+header.has-slider .vh100 {
+    --slider-height : calc(100vh - 5rem);
+    min-height: var(--slider-height);
+}
+header.has-slider .header-slide {
+    position: relative;
+}
+
+header.has-slider .header-slide .header-slider-image {
+    z-index: -1;
+    position: absolute;
+    width: 100vw;
+    height: var(--slider-height);
+    object-fit: cover;
+    object-position: center;
+}
+
+.header-slide .text-wrapper {
+    position: relative;
+    z-index: 2;
+    margin-top: auto;
+    margin-inline: auto;
+    padding-bottom: 5rem;
+}
+.header-slide::before {
+    content: '';
+    background: linear-gradient(0deg, var(--base-background-color) 0%, transparent 35%, transparent 80%, rgba(0,0,0, 0.5) 100%);
+    position: absolute;
+    inset: 0 0 0 0;
+    z-index: 0;
+}
+header.has-slider .flickity-viewport {
+    position: relative;
+    z-index: 0;
+}
+header.has-slider .flickity-page-dots {
+    position: absolute;
+    z-index: 15;
+    bottom: 2rem;
+    color: currentColor;
+}
+header.has-slider .flickity-page-dots .dot {
+    background-color: currentColor;
+}
+header.has-slider .flickity-prev-next-button {
+    background: transparent;
+    color: currentColor;
+}
+header.has-slider .flickity-prev-next-button.previous {
+    left: var(--xy-gutter);
+}
+header.has-slider .flickity-prev-next-button.next {
+    right: var(--xy-gutter);
+}
+header .btn {
+    background-color: transparent;
+}
+header .btn:hover {
+    background-color: var(--text-color);
+    color: var(--base-background-color);
+}
+header .text-wrapper p {
+    margin-bottom: 0;
+}
