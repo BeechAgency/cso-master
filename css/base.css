@@ -194,6 +194,10 @@ a {
 .btn + .btn {
 	margin-left: 1rem;
 }
+.btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
 
 figure {
 	margin: 0;
@@ -412,7 +416,8 @@ section.block {
     color: transparent;
 }
 
-.search-form input[type="text"], .search-form input[type="search"] {
+.search-form input[type="text"], 
+.search-form input[type="search"] {
     background: none;
     border: none;
     color: currentColor;
