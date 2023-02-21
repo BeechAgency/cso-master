@@ -84,10 +84,10 @@
 <aside class="mega-menu-wrapper <?= $bg ?>" id="megaMenuWrapper">
     <div class="mega-menu-inner has-gutter"> 
         <div class="mega-menu-header xy-flex">
-            <div class="xy-col" data-xy-col="xl-3 lg-3 md-3 sm-12">
+            <div class="xy-col" data-xy-col="xl-3 lg-3 md-6 sm-12">
                 <a href="/"><?= get_acf_image('logo_white', 'full', 'main', 'option', 'logo') ?></a>
             </div>
-            <div class="xy-col pull-right" data-xy-col="xl-9 lg-9 md-9 sm-12" data-xy-start="xl-auto lg-auto md-auto sm-auto">
+            <div class="xy-col pull-right" data-xy-col="xl-9 lg-9 md-6 sm-12" data-xy-start="xl-auto lg-auto md-auto sm-auto">
                 <?php csomaster_nav_location('header-utility'); ?>
             </div>
         </div>

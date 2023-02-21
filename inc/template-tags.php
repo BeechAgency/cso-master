@@ -260,9 +260,7 @@ if ( ! function_exists( 'csomaster_post_list') ) :
 	
 		$args = array(
 			'posts_per_page' => $numberOfPosts,
-			'post_type' => $postType,
-			'order'=>'DESC',
-			'orderby'=>'ID'
+			'post_type' => $postType
 		);
 
 		if(!empty($category)) {

@@ -460,17 +460,23 @@ section.block.post-block__post-grid {
 
 .block.has-school-style {
 	position: relative;
+    overflow: hidden;
 }
 .block.has-school-style::after {
 	content: '';
 	position: absolute;
 	right: -3rem;
 	top: 0;
+    z-index: 0;
+}
+.block.has-school-style > .xy-grid {
+    position: relative;
+    z-index: 1;
 }
 
 
 .text-block__image_text.image-full .text-wrapper {
-	padding-block: 2rem;
+	padding-block: 5rem;
 }
 
 .block.text-block__list-items.faq-list > .xy-grid {

@@ -18,7 +18,49 @@
     }
     
     /* Nav */
-    .nav-footer-auxiliary ul { justify-content: flex-start; }
+    /* Center nav on mobile */
+    nav img.logo, aside img.logo {
+        margin-inline: auto;
+    }
+    .header-primary-nav .nav-inner.xy-flex, .mega-menu-header {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .nav-header-utility ul {
+        justify-content: center;
+    }
+    .mega-menu-header:after { position: relative; }
+    .mega-menu-header {
+        height: auto;
+        gap: var(--xy-row-gap);
+        margin-bottom: 0;
+        padding-block: 1.25rem;
+    }
+    .nav-mega {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .header-primary-nav .nav-inner.xy-flex { padding-inline:0;}
+
+    nav.header-auxiliary-nav + aside.mega-menu-wrapper .nav-header-utility, nav.header-auxiliary-nav + aside.mega-menu-wrapper.open.closing .nav-header-utility, nav.header-auxiliary-nav + aside.mega-menu-wrapper .logo, nav.header-auxiliary-nav + aside.mega-menu-wrapper.open.closing .logo {
+        transform: translate(0,0);
+    }
+    .nav-header-utility {
+        padding-top: 0;
+    }
+    #menu-mega-menu {
+        max-height: 55vh;
+        max-height: 55svh;
+    }
+
+
+    .nav-footer-auxiliary ul { 
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 1rem;
+     }
     footer .xy-grid { row-gap: 1.5rem; }
     footer .xy-grid:last-child { padding-block: 2rem; }
     ul.in-page-nav-list .in-page-nav-item:not(:last-child) {
@@ -29,9 +71,9 @@
         max-width: 100%;
     }
 
-.site-search-outer .search-form > label {
-    max-width: calc(100% - 3rem);
-}
+    .site-search-outer .search-form > label {
+        max-width: calc(100% - 3rem);
+    }
 
     /* Blocks */
     .gallery-wrapper figure figcaption { display: none; }
@@ -110,5 +152,13 @@
     }
 
     .vertical-spacer { display: none; }
+
+    .breadcrumbs-list {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .breadcrumbs-list .spacer {
+        display: none;
+    }
 
 }

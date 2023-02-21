@@ -7,6 +7,14 @@ p:has(~ .gravity-theme) {
 .gform_wrapper p:empty {
     display: none;
 }
+input[type="search" i]:enabled:read-write:-webkit-any(:focus, :hover)::-webkit-search-cancel-button {
+    display: none;
+    opacity: 0;
+}
+input[type="search"]:focus-visible {
+    outline: transparent;
+}
+
 form:not(.search-form) input, form:not(.search-form) select, form:not(.search-form) textarea {
     border: solid 1.5px var(--black);
     border-radius: 0;

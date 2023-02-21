@@ -211,6 +211,7 @@ ul.term-dates li > span { font-weight: var(--fw-bold); text-transform: uppercase
     align-items: stretch;
     justify-content: stretch;
     min-height: 100vh;
+    min-height: 100svh;
     height: 100%;
 }
 
@@ -422,6 +423,7 @@ nav.header-auxiliary-nav + aside.mega-menu-wrapper .nav-mega .menu {
 }
 body[aria-menu-expanded="true"] { 
     position: fixed; 
+    width: 100%;
 }
 body[aria-menu-expanded="true"] nav.header-auxiliary-nav {
     background-color: var(--primary-dark);

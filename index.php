@@ -52,7 +52,7 @@ $card_text = get_field('text_color', $page_id);
 						array(
 							'wrapper' => 'li', 
 							'class' => "card xy-col $card_bg", 
-							'grid' => 'xl-4 lg-4 md-4 sm-6'
+							'grid' => 'xl-4 lg-4 md-6 sm-12'
 							) 
 						);
 

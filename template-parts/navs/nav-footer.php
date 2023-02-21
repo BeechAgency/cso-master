@@ -14,9 +14,9 @@
     <div class="xy-grid has-gutter <?= $footer_background_color ?>">
         <div class="xy-col" data-xy-col="xl-4 lg-4 md-12 sm-12">
             <?= conditionally_output_field($footer_text, '<h2>', '</h2>'); ?>
-            <?= conditionally_output_field($school_phone, '<p class="phone">', '</p>'); ?>
+            <?= conditionally_output_field($school_phone, '<p class="phone"><a href="tel:'.$school_phone.'">', '</a></p>'); ?>
             <?= conditionally_output_field($address, '<p class="address">', '</p>'); ?>
-            <?= conditionally_output_field($school_email, '<p class="email">', '</p>'); ?>
+            <?= conditionally_output_field($school_email, '<p class="email"><a href="mailto:'.$school_email.'">', '</a></p>'); ?>
 
             <?php if($school_social) : ?>
                 <ul class="social">
@@ -42,10 +42,10 @@
     </div>
 
     <div class="xy-grid has-gutter <?= $footer_auxiliary_background_color ?>">
-        <div class="breadcrumbs xy-col" data-xy-col="xl-6 lg-6 md-6 sm-12">
+        <div class="breadcrumbs xy-col" data-xy-col="xl-6 lg-6 md-12 sm-12">
             <?= the_breadcrumb(); ?>
         </div>
-        <nav class="nav xy-col" data-xy-col="xl-6 lg-6 md-6 sm-12">
+        <nav class="nav xy-col" data-xy-col="xl-6 lg-6 md-12 sm-12">
             <?php csomaster_nav_location('footer-auxiliary'); ?>
         </nav>
     </div>
