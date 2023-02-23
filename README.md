@@ -24,12 +24,12 @@ Theme updates are deployed via GitHub releases, making it easy to stay up-to-dat
 
 CSO Master is also extensible with a number of hooks that allow you to customize the theme to your liking. These hooks include:
 
-csomaster_header
-csomaster_before_header
-csomaster_after_header
-csomaster_before_custom_header_text_layout
-csomaster_after_custom_header_text_layout
-csomaster_set_custom_header_data
+- csomaster_header
+- csomaster_before_header
+- csomaster_after_header
+- csomaster_before_custom_header_text_layout
+- csomaster_after_custom_header_text_layout
+- csomaster_set_custom_header_data
 
 ---------------
 
