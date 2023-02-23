@@ -167,14 +167,9 @@ function csomaster_scripts() {
 	wp_enqueue_script( 'csomaster-blocks', get_template_directory_uri() . '/js/blocks.js', array(), _S_VERSION, true );
 
 	wp_enqueue_script( 'flickity', get_template_directory_uri() . '/js/vendor/flickity.pkgd.min.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'header-carousel', get_template_directory_uri() . '/js/home-carousel.js', array('flickity'), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
-	}
-
-	if ( get_post_type() === 'project' ) {
-		wp_enqueue_script('side-scroll', get_template_directory_uri() . '/js/side-scroll.js', array(), _S_VERSION, true ); 
 	}
 }
 add_action( 'wp_enqueue_scripts', 'csomaster_scripts' );
@@ -188,9 +183,7 @@ function csomaster_defer_scripts( $tag, $handle, $src ) {
 
 	// The handles of the enqueued scripts we want to defer
 	$defer_scripts = array( 
-		'blocks',
-		'home-carousel',
-		'side-scroll'
+		'blocks'
 	);
 
     if ( in_array( $handle, $defer_scripts ) ) {

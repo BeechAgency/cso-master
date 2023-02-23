@@ -48,7 +48,7 @@
 </div>
 
 <div class="carousel-wrapper type-<?= $posts_type ?> xy-col" data-xy-col="12">
-    <div class="post-carousel" data-flickity='{ "contain": true, "groupCells": false, "percentPosition": false, "cellAlign": "left", "prevNextButtons": true, "autoPlay": false, "wrapAround" : true, "pageDots" : false, "arrowShape": { "x0": 10, "x1": 55, "y1": 45, "x2": 60, "y2": 40, "x3": 20 } }'>
+    <div class="post-carousel" data-flickity-options='{ "contain": true, "groupCells": false, "percentPosition": false, "cellAlign": "left", "prevNextButtons": true, "autoPlay": false, "wrapAround" : true, "pageDots" : false, "arrowShape": { "x0": 10, "x1": 55, "y1": 45, "x2": 60, "y2": 40, "x3": 20 } }'>
         <?php csomaster_post_list($postListOptions); ?>
     </div>
 </div>

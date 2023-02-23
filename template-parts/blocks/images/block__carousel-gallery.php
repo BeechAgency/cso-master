@@ -12,7 +12,7 @@
 ?>
 
 <div class="carousel-wrapper" data-xy-col="12">
-    <div class="gallery-carousel"  data-flickity='{ "cellAlign": "left", "prevNextButtons": false, "autoPlay": true }'>
+    <div class="gallery-carousel"  data-flickity-options='{ "cellAlign": "left", "prevNextButtons": false, "autoPlay": true }'>
     <?php 
         foreach($gallery as $image) : 
     ?>

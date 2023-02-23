@@ -34,7 +34,7 @@
     </div>
     <?php
     if(have_rows('header_slider')): ?>
-    <div class='header-slider-wrapper xy-col' data-flickity='{ "freesScroll" : false, "wrapAround": true, "fade": true, "autoPlay": 6000, "pauseAutoPlayOnHover": true, "arrowShape": { "x0": 10, "x1": 55, "y1": 45, "x2": 60, "y2": 40, "x3": 20 } }' data-xy-col="12">
+    <div class='header-slider-wrapper xy-col' data-flickity-options='{ "freesScroll" : false, "wrapAround": true, "fade": true, "autoPlay": 6000, "pauseAutoPlayOnHover": true, "arrowShape": { "x0": 10, "x1": 55, "y1": 45, "x2": 60, "y2": 40, "x3": 20 } }' data-xy-col="12">
     <?php
         foreach ( $slider_slides as $slide ) :
             get_template_part( 'template-parts/headers/components/layout', 'slide', $slide ); 

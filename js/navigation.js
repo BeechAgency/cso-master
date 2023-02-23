@@ -3,7 +3,19 @@
  *
  * Handles the big slidy boy of the nav. Use inconjunction with some tasty CSS.
  */
-//console.log('nav v5');
+console.log('nav v6');
+
+if(typeof AnalyticsHandler !== 'function') {
+	function AnalyticsHandler( event_name = 'ga_event', event_params = {}, user_props = {} ) {
+		if(typeof window.dataLayer !== 'object' ) return false;
+
+		let event = { 'event' : 'gtm.ga4.event', 'event_name' : event_name, event_params, user_props }
+
+		dataLayer.push(event);
+
+		return true;
+	}
+}
 
 // Handle the mega nav
  ( function() {
@@ -33,6 +45,8 @@
 			siteNavigation.setAttribute( 'aria-expanded', 'false' );
 			body.setAttribute( 'aria-menu-expanded', 'false' );
 
+			AnalyticsHandler('menu_toggle', { 'menu_action' : 'close_menu' });
+
 			siteNavigation.classList.add( 'closing' );
 
 			setTimeout( function() { 
@@ -44,6 +58,8 @@
 			// Open the nav
 			siteNavigation.setAttribute( 'aria-expanded', 'true' );
 			body.setAttribute( 'aria-menu-expanded', 'true' );
+
+			AnalyticsHandler('menu_toggle', { 'menu_action' : 'open_menu' });
 
 			siteNavigation.classList.add( 'opening' );
 
@@ -89,6 +105,8 @@
 			}, 150 );
 	
 			body.setAttribute( 'aria-menu-expanded', 'true' );
+
+			AnalyticsHandler('menu_toggle', { 'menu_action' : 'open_search' });
 		});
 	})
 
@@ -107,6 +125,9 @@
 		} else {
 			body.setAttribute( 'aria-menu-expanded', 'false' );
 		}
+
+
+		AnalyticsHandler('menu_toggle', { 'menu_action' : 'close_search' });
 		
 	});
 

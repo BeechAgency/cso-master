@@ -82,6 +82,7 @@
     text-align: right;
     bottom: 0.25rem;
     width: calc(100% - var(--xy-gutter));
+    z-index: 3;
 }
 section.block.images-block__carousel-gallery, .block.cards-block__article-list {
     padding-left: var(--xy-gutter);
