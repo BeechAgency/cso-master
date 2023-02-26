@@ -3,7 +3,12 @@
  *
  * Handles the big slidy boy of the nav. Use inconjunction with some tasty CSS.
  */
-console.log('nav v6');
+console.log(
+    "%cSite by %cBEECH Agency %c\nhttps://beech.agency",
+    "color:white;background-color:#15171e; padding: 10px 0px 10px 10px; font-size: 18px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;", 
+    "color:#ffb30b;background-color:#15171e; padding: 10px 10px 10px 0px; font-size: 18px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;", 
+    "color:#15171e;background-color:transparent; padding: 0px; font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;"
+);
 
 if(typeof AnalyticsHandler !== 'function') {
 	function AnalyticsHandler( event_name = 'ga_event', event_params = {}, user_props = {} ) {

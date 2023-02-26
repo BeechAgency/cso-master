@@ -28,10 +28,10 @@
         <div class="xy-col" data-xy-col="xl-3 lg-3 md-6 sm-12">
             <a href="/"><?= get_acf_image('logo_white', 'full', 'main', 'option', 'logo') ?></a>
         </div>
-        <div class="xy-col" data-xy-col="xl-7 lg-7 md-auto sm-auto" data-xy-items="justify-center">
+        <div class="xy-col" data-xy-col="xl-6 lg-6 md-auto sm-auto" data-xy-items="justify-center">
             <?php csomaster_nav_location('header-primary'); ?>
         </div>
-        <div class="xy-col" data-xy-col="xl-2 lg-2 md-6 sm-12">
+        <div class="xy-col" data-xy-col="xl-3 lg-3 md-6 sm-12">
             <?php csomaster_nav_location('header-utility'); ?>
         </div>
     </div>
