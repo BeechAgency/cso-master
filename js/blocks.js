@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         optionsJSON.on = {
             dragEnd : function ( event, pointer ) {
-                console.log('Drag End JSON', this.selectedIndex)
+                //console.log('Drag End JSON', this.selectedIndex)
                 AnalyticsHandler('slide_interaction', {'slide_content_type' : type, 'slide_interaction_type': 'drag', 'slide_to' : flickObj.selectedIndex, 'slide_location' : block_id});
             },
             ready : function () {
