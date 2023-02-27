@@ -164,8 +164,9 @@ function csomaster_scripts() {
 	wp_style_add_data( 'csomaster-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'csomaster-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'csomaster-blocks', get_template_directory_uri() . '/js/blocks.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'csomaster-blocks', get_template_directory_uri() . '/js/blocks.js', array('lozad'), _S_VERSION, true );
 
+	wp_enqueue_script( 'lozad', get_template_directory_uri() . '/js/vendor/lozad.min.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'flickity', get_template_directory_uri() . '/js/vendor/flickity.pkgd.min.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -177,17 +178,26 @@ add_action( 'wp_enqueue_scripts', 'csomaster_scripts' );
 
 //Remove JQuery migrate
  
-function remove_jquery_migrate( $scripts ) {
+function csomaster_remove_jquery_migrate( $scripts ) {
 	if ( ! is_admin() && isset( $scripts->registered['jquery'] ) ) {
 		 $script = $scripts->registered['jquery'];
-	if ( $script->deps ) { 
- // Check whether the script has any dependencies
- 
-		 $script->deps = array_diff( $script->deps, array( 'jquery-migrate' ) );
-  }
-  }
-  }
- add_action( 'wp_default_scripts', 'remove_jquery_migrate' );
+		 
+		if ( $script->deps ) { 
+			// Check whether the script has any dependencies
+			$script->deps = array_diff( $script->deps, array( 'jquery-migrate' ) );
+		}	
+  	}
+}
+ add_action( 'wp_default_scripts', 'csomaster_remove_jquery_migrate' );
+
+ //Remove Gutenberg Block Library CSS from loading on the frontend
+ function csomaster_remove_wp_block_library_css(){
+	wp_dequeue_style( 'wp-block-library' );
+	wp_dequeue_style( 'wp-block-library-theme' );
+	wp_dequeue_style( 'wc-blocks-style' ); // Remove WooCommerce block CSS
+	wp_dequeue_style( 'classic-theme-styles-css' );
+   } 
+ add_action( 'wp_enqueue_scripts', 'csomaster_remove_wp_block_library_css', 100 );
 
 
 /**

@@ -36,9 +36,10 @@
     </div>
     <?php if(!empty($args['header_video'])): ?>
         <div class="video-wrapper">
-            <video autoplay muted loop playsinline preload="none" poster="<?= $background_image[0]; ?>">
-                <source src="<?= $args['header_video'] ?>" type="video/mp4">
+            <video class="lozad" autoplay muted loop playsinline preload="none" data-poster="<?= $background_image[0]; ?>">
+                <source data-src="<?= $args['header_video'] ?>" type="video/mp4">
             </video>
+            <img src="<?= $background_image[0]; ?>" class="video-poster lozad" />
         </div>
     <?php endif; ?>
 </header>

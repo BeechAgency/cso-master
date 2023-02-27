@@ -512,3 +512,25 @@ header.has-top-gradient > div {
     position: relative;
     z-index: 1;
 }
+
+header img.video-poster {
+	position: absolute;
+	top: 0;
+
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+
+	z-index: 3;
+
+}
+
+header video[data-loaded="true"] + img.video-poster {
+	animation: 1s fadeOut linear normal 1 forwards;
+	animation-delay: 500ms;
+}
+
+@keyframes fadeOut {
+	0% { opacity: 1; }
+	100% { opacity: 0;}
+}

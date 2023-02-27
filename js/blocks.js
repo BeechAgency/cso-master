@@ -146,6 +146,12 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
 });
+
+    // Lazy load the lozads
+    if(typeof window.lozad === 'function') {
+        const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+        observer.observe();
+    }
 }() );
 
 //console.log('YAY');
