@@ -294,4 +294,24 @@ function csomaster_setup_theme_settings() {
 		echo $html;
 	}
 	
+	register_setting( 'general', 'csomaster_google_maps_api_key' );
+	add_settings_field('csomaster_google_maps_api_key', 'Google Maps API Key', 'csomaster_google_maps_api_key_cb', 'general', 'default' );
+
+	function csomaster_google_maps_api_key_cb($args)
+	{ 
+		$name = 'Google Maps API Key';
+		$id = 'csomaster_google_maps_api_key';
+		$value = get_option('csomaster_google_maps_api_key');
+
+		// Could use ob_start.
+		$html  = '';
+		$html .= '<input id="' . esc_attr( $id ) . '" 
+		name="' . esc_attr( 'csomaster_google_maps_api_key' ) .'" 
+		type="text" value="' . $value . '" class="regular-text ltr" />';
+		$html .= '<p class="description">' . esc_html( 'Used to enable Google Maps features' ) .'</p>';
+		$html .= '<b class="wntip" data-title="'. esc_attr( 'Google Maps API Key' ) .'"></b>';
+
+		echo $html;
+	}
+	
 }
