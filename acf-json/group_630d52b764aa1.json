@@ -283,6 +283,25 @@
                     "maxlength": ""
                 }
             ]
+        },
+        {
+            "key": "field_63fc3a0bfc34a",
+            "label": "Google Maps API Key",
+            "name": "google_maps_api_key",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -303,5 +322,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1668057711
+    "modified": 1677474362
 }
