@@ -36,7 +36,7 @@
     </div>
     <?php if(!empty($args['header_video'])): ?>
         <div class="video-wrapper">
-            <video autoplay muted loop playsinline poster="<?= $background_image[0]; ?>">
+            <video autoplay muted loop playsinline preload="none" poster="<?= $background_image[0]; ?>">
                 <source src="<?= $args['header_video'] ?>" type="video/mp4">
             </video>
         </div>
