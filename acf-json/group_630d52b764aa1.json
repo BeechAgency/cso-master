@@ -283,6 +283,25 @@
                     "maxlength": ""
                 }
             ]
+        },
+        {
+            "key": "field_63ffd32260158",
+            "label": "Display Author on Posts",
+            "name": "display_author",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -303,5 +322,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677476576
+    "modified": 1677710151
 }

@@ -12,7 +12,9 @@
         $author = get_the_author_meta('display_name', $user_id);
 
         echo '<p>';
-        echo !empty($author) ? '<span class="author">'.$author.'</span> — ' : '';
+        if( get_field('display_author', 'options') ) {
+            echo !empty($author) ? '<span class="author">'.$author.'</span> — ' : '';
+        }
         echo '<span class="date">'.get_the_date().'</span>';
         echo '</p>';
     endif; 
