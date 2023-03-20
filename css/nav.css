@@ -580,6 +580,15 @@ footer .social a img {
 }
 .footer-acknowledgement p { margin: 0;}
 
+footer > .has-primary-dark-background-color:first-child, 
+footer > .has-secondary-dark-background-color:first-child {
+    color: var(--white);
+    --text-color: var(--white);    
+}
+footer .has-primary-dark-background-color .social a img,
+footer .has-secondary-dark-background-color .social a img {
+    filter: invert();
+}
 
 header.has-slider {
     position: relative;

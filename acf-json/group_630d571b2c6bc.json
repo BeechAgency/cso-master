@@ -3,10 +3,10 @@
     "title": "Global Footer Settings",
     "fields": [
         {
-            "key": "field_630d57b6830cd",
-            "label": "Acknowledgement of Country",
-            "name": "acknowledgement",
-            "type": "textarea",
+            "key": "field_6417b5bd9a2e2",
+            "label": "",
+            "name": "",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,84 +15,9 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 4,
-            "new_lines": "br"
-        },
-        {
-            "key": "field_630d780a0fd89",
-            "label": "Footer Text",
-            "name": "footer_text",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 1,
-            "new_lines": "br"
-        },
-        {
-            "key": "field_630d5724830cb",
-            "label": "Footer Background Color",
-            "name": "footer_background_color",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "has-primary-dark-background-color": "Primary Dark",
-                "has-primary-light-background-color": "Primary Light",
-                "has-secondary-dark-background-color": "Secondary Dark",
-                "has-secondary-light-background-color": "Secondary Light"
-            },
-            "default_value": "has-primary-light-background-color",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
-        },
-        {
-            "key": "field_630d574a830cc",
-            "label": "Footer Auxiliary Navigation Background Colour",
-            "name": "footer_auxiliary_background_color",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "has-primary-dark-background-color has-white-color": "Primary Dark",
-                "has-primary-light-background-color has-black-color": "Primary Light",
-                "has-secondary-dark-background-color has-white-color": "Secondary Dark",
-                "has-secondary-light-background-color has-black-color": "Secondary Light"
-            },
-            "default_value": "has-primary-dark-background-color has-white-color",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
+            "message": "This page has been merged with School settings and is due to be removed in the coming updates.",
+            "new_lines": "wpautop",
+            "esc_html": 0
         }
     ],
     "location": [
@@ -113,5 +38,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1668057709
+    "modified": 1679275493
 }

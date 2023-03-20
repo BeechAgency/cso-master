@@ -3,11 +3,108 @@
     "title": "School",
     "fields": [
         {
-            "key": "field_630d53725d41f",
-            "label": "Logo",
-            "name": "logo",
-            "type": "image",
+            "key": "field_6417b49d6f1f4",
+            "label": "Term Dates",
+            "name": "",
+            "type": "tab",
             "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_630d53d15d421",
+            "label": "Term Dates",
+            "name": "school_term_dates",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_630d53e45d422",
+                    "label": "Term",
+                    "name": "term",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "15",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Term 1": "1",
+                        "Term 2": "2",
+                        "Term 3": "3",
+                        "Term 4": "4",
+                        "false": "NA"
+                    },
+                    "allow_null": 0,
+                    "default_value": "",
+                    "layout": "horizontal",
+                    "return_format": "value"
+                },
+                {
+                    "key": "field_630d54025d423",
+                    "label": "Date Text",
+                    "name": "date_text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
+            "key": "field_6417b4526f1f2",
+            "label": "School Details + Contact",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_630d53805d420",
+            "label": "Logo (Header)",
+            "name": "logo_white",
+            "type": "image",
+            "instructions": "Logo that appears in the header.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -27,11 +124,11 @@
             "mime_types": ""
         },
         {
-            "key": "field_630d53805d420",
-            "label": "Logo (White)",
-            "name": "logo_white",
+            "key": "field_630d53725d41f",
+            "label": "Logo (Footer)",
+            "name": "logo",
             "type": "image",
-            "instructions": "",
+            "instructions": "Logo the appears in the footer.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -220,10 +317,10 @@
             ]
         },
         {
-            "key": "field_630d53d15d421",
-            "label": "Term Dates",
-            "name": "school_term_dates",
-            "type": "repeater",
+            "key": "field_6417b64ffb522",
+            "label": "Header Options + Colours",
+            "name": "",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -232,57 +329,335 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "",
-            "sub_fields": [
-                {
-                    "key": "field_630d53e45d422",
-                    "label": "Term",
-                    "name": "term",
-                    "type": "button_group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "15",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "Term 1": "1",
-                        "Term 2": "2",
-                        "Term 3": "3",
-                        "Term 4": "4",
-                        "false": "NA"
-                    },
-                    "allow_null": 0,
-                    "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
-                },
-                {
-                    "key": "field_630d54025d423",
-                    "label": "Date Text",
-                    "name": "date_text",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                }
-            ]
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_630d54eced1b4",
+            "label": "Global Navigation Style",
+            "name": "navigation_style",
+            "type": "button_group",
+            "instructions": "What is the global navigation style? Applied across the entire site.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Logo Left Aligned",
+                "centred": "Logo Centred",
+                "solid": "Logo Left with Solid Background"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_630d5563ed1b5",
+            "label": "Display Auxiliary (Top) Navigation",
+            "name": "auxiliary_navigation_display",
+            "type": "true_false",
+            "instructions": "Display a solid coloured navigation above the header?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Display top bar",
+            "ui_off_text": "No top bar"
+        },
+        {
+            "key": "field_630d5613ed1b8",
+            "label": "Navigation Background Color",
+            "name": "primary_navigation_background_color",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "has-primary-dark-background-color has-white-color": "Primary Dark",
+                "has-primary-light-background-color has-black-color": "Primary Light",
+                "has-secondary-dark-background-color has-white-color": "Secondary Dark",
+                "has-secondary-light-background-color has-black-color": "Secondary Light"
+            },
+            "default_value": "has-primary-dark-background-color has-white-color",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_630d564ded1b9",
+            "label": "Expanded Navigation Background",
+            "name": "mega_navigation_background_color",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "has-primary-dark-background-color has-white-color": "Primary Dark",
+                "has-primary-light-background-color has-black-color": "Primary Light",
+                "has-secondary-dark-background-color has-white-color": "Secondary Dark",
+                "has-secondary-light-background-color has-black-color": "Secondary Light"
+            },
+            "default_value": "has-primary-dark-background-color has-white-color",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6417b74bfb523",
+            "label": "",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_630d557aed1b6",
+            "label": "Auxiliary Navigation Text",
+            "name": "auxiliary_navigation_text",
+            "type": "text",
+            "instructions": "Keep it short, otherwise it may cause layout breaks.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_630d559aed1b7",
+            "label": "Auxiliary Navigation Background",
+            "name": "auxiliary_navigation_background_color",
+            "type": "select",
+            "instructions": "Background colour of the Auxiliary nav.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "has-primary-dark-background-color has-white-color": "Primary Dark",
+                "has-primary-light-background-color has-black-color": "Primary Light",
+                "has-secondary-dark-background-color has-white-color": "Secondary Dark",
+                "has-secondary-light-background-color has-black-color": "Secondary Light"
+            },
+            "default_value": "has-primary-dark-background-color has-white-color",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6316d3e923a2a",
+            "label": "Auxiliary Navigation Background (Inverse)",
+            "name": "auxiliary_navigation_background_color_inverse",
+            "type": "select",
+            "instructions": "Pages with solid style navigation use the inverse Auxiliary Navigation colour.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "has-primary-dark-background-color has-white-color": "Primary Dark",
+                "has-primary-light-background-color has-black-color": "Primary Light",
+                "has-secondary-dark-background-color has-white-color": "Secondary Dark",
+                "has-secondary-light-background-color has-black-color": "Secondary Light"
+            },
+            "default_value": "has-primary-dark-background-color has-white-color",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6417b3b7e16df",
+            "label": "Footer Content + Colours",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_630d57b6830cd",
+            "label": "Acknowledgement of Country",
+            "name": "acknowledgement",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_630d780a0fd89",
+            "label": "Footer Text",
+            "name": "footer_text",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 1,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_6417b4de047cf",
+            "label": "",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_630d5724830cb",
+            "label": "Footer Background Color",
+            "name": "footer_background_color",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "has-primary-dark-background-color": "Primary Dark",
+                "has-primary-light-background-color": "Primary Light",
+                "has-secondary-dark-background-color": "Secondary Dark",
+                "has-secondary-light-background-color": "Secondary Light"
+            },
+            "default_value": "has-primary-light-background-color",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_630d574a830cc",
+            "label": "Footer Auxiliary Navigation Background Colour",
+            "name": "footer_auxiliary_background_color",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "has-primary-dark-background-color has-white-color": "Primary Dark",
+                "has-primary-light-background-color has-black-color": "Primary Light",
+                "has-secondary-dark-background-color has-white-color": "Secondary Dark",
+                "has-secondary-light-background-color has-black-color": "Secondary Light"
+            },
+            "default_value": "has-primary-dark-background-color has-white-color",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6417b4856f1f3",
+            "label": "Options",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
         },
         {
             "key": "field_63ffd32260158",
@@ -302,6 +677,30 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_636c8ab7d8149",
+            "label": "Search Background Image",
+            "name": "search_background_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -322,5 +721,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677710151
+    "modified": 1679276366
 }
