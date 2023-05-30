@@ -35,10 +35,21 @@ function get_acf_image($field, $size = 'full', $type = 'sub', $postId = null, $c
 /* Youtube ID */
 function get_youtube_id($url) {
 
-    $url_components = parse_url($url);
-    parse_str($url_components['query'], $params);
-
-    return $params['v'];
+    $parsedUrl = parse_url($url);
+    
+    if (isset($parsedUrl['query'])) {
+        parse_str($parsedUrl['query'], $query);
+        if (isset($query['v'])) {
+            return $query['v'];
+        }
+    }
+    
+    $path = ltrim($parsedUrl['path'], '/');
+    if (strpos($parsedUrl['host'], 'youtu.be') !== false) {
+        return $path;
+    }
+    
+    return null;
 }
 
 function get_vimeo_id($url) {
