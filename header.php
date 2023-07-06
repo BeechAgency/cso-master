@@ -38,7 +38,5 @@ endif;
 
 <body <?php body_class($body_classes); ?>> 
 <?php wp_body_open(); ?>
-
-<div id="scrollPercentage"></div>
 <main id="page" class="site">
 	<?php get_template_part('template-parts/headers/header'); ?>

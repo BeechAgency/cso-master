@@ -14,6 +14,6 @@
 </div>
 <div class="xy-col text-wrapper <?= $background_color_card ?>" data-xy-col="<?= $grid_cols ?>" data-xy-start="<?= $grid_start ?>" data-xy-items="align-center">
 
-    <?= $fields['content'] ?>
+    <?= apply_filters( 'the_content', $fields['content']); ?>
 
 </div>

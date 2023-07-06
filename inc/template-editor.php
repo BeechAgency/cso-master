@@ -44,14 +44,14 @@ function csomaster_mce_before_init_insert_formats( $init_array ) {
 		array(  
 			'title' => 'Button',  
 			'block' => 'a',  
-			'classes' => 'button',
+			'classes' => 'btn btn-primary',
 			'wrapper' => true,
 			'attributes' => array('target' => '_blank')
 		),
 		array(  
-			'title' => 'Button - white',  
+			'title' => 'Button - Secondary',  
 			'block' => 'a',  
-			'classes' => 'button has-black-color has-white-background-color',
+			'classes' => 'btn btn-secondary',
 			'wrapper' => true,
 		)
 	);  
