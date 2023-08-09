@@ -11,15 +11,11 @@
 	--success : #2DC98D;
 
     /* Fonts */
-	--ff-halyard :
-    "Halyard Display", serif;
+	--ff-halyard : "Halyard Display", serif;
 	--ff-capitolium : capitolium-2, serif;
-	--ff-sans :
-    'Source Sans Pro', sans-serif;
-	--ff-serif :
-    var(--ff-capitolium);
-    --ff-mono :
-    'Space Mono', monospace;
+	--ff-sans : 'Source Sans Pro', sans-serif;
+	--ff-serif : var(--ff-capitolium);
+    --ff-mono : 'Space Mono', monospace;
 
 	--fw-regular : 400;
 	--fw-book : 400;
@@ -27,18 +23,14 @@
 	--fw-medium : 600;
 	--fw-bold : 700;
 	
-    --ff-headings :
-    var(--ff-serif);
-    --ff-body :
-    var(--ff-sans);
+    --ff-headings : var(--ff-serif);
+    --ff-body : var(--ff-sans);
 
     /* Font Sizes */
-	--base-font-size:
-    clamp(16px, 1.1713vw, 1.1713vw); /*  16px @ 1366px width = 1.1713vw, clamp the base font for max flex  */
+	--base-font-size: clamp(16px, 1.1713vw, 1.1713vw); /*  16px @ 1366px width = 1.1713vw, clamp the base font for max flex  */
 	--base-line-height : 1.375;
 
-	--fs-base :
-    var(--base-font-size); /* 16px @ 16px base */
+	--fs-base : var(--base-font-size); /* 16px @ 16px base */
 
 	--fs-h1: 3.052rem; /* 48px @ 16px base */
 	--fs-h2 : 2.441rem; /* 39px @ 16px base */
@@ -50,10 +42,8 @@
 	--fs-s2 : 0.64rem; /* 12px @ 16px base */
 
 	/* Default */
-	--body-text-color:
-    var(--black, #000000);
-	--body-bg-color:
-    var(--white, #ffffff);
+	--body-text-color: var(--black, #000000);
+	--body-bg-color: var(--white, #ffffff);
 
 	/* Width */
 	--max-width : 78rem;
@@ -484,9 +474,23 @@ ul.in-page-nav-list .in-page-nav-item:not(:last-child) {
 
 .gallery {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 1rem;
+	flex-wrap: wrap;
 }
+.gallery .gallery-item {
+	--gallery-offset : calc( 100% - ( var(--gallery-cols) * 1rem - 1rem )  );
+	flex-basis: calc( var(--gallery-offset) / var(--gallery-cols) );
+}
+.gallery-columns-1 { --gallery-cols : 1; }
+.gallery-columns-2 { --gallery-cols : 2; }
+.gallery-columns-3 { --gallery-cols : 3; }
+.gallery-columns-4 { --gallery-cols : 4; }
+.gallery-columns-5 { --gallery-cols : 5; }
+.gallery-columns-6 { --gallery-cols : 6; }
+.gallery-columns-7 { --gallery-cols : 7; }
+.gallery-columns-8 { --gallery-cols : 8; }
+.gallery-columns-9 { --gallery-cols : 9; }
 
 .text-block__image_text .text-wrapper > .btn {
 	margin-top: 1rem;
