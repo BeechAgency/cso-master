@@ -14,31 +14,27 @@
 
 get_header();
 
-?>
+if( have_posts() ) :
+	
+	while ( have_posts() ) :
+		the_post();
 
+		if ( post_password_required() ) {
+			// Content to display when the post is password protected
 
-	<?php
-	if( have_posts() ) :
-
-		
-		while ( have_posts() ) :
-			the_post();
-
+			echo '<div class="custom-password-form"><div class="inner">';
+				echo '<h3>Sorry, this page is password protected.</h3>';
+				echo get_the_password_form(); 
+			echo '</div></div>';
+			
+		} else {
+			// Display the content for non-protected posts
+			//the_content();
 			get_template_part( 'template-parts/content', 'page' );
-			/*
-			if( '' !== get_post()->post_content ) :?>
-				<div class="row">
-					<div class="entry-content">
-						<?php the_content(); ?>
-					</div>
-				</div>
-			<?php endif; 
-			*/
-		endwhile; // End of the loop.
-	endif;
-	?>
+		}
 
+	endwhile; // End of the loop.
 
-<?php
+endif;
 
 get_footer();
