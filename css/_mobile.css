@@ -9,7 +9,7 @@
     .nav-mega { min-height: 0; }
     .mega-menu-inner .nav-mega ul.menu {min-height: calc(100vh - 16rem - 6rem - 2rem - 0.75rem);height: auto !important;}
 
-    header.has-slider .header-slide .header-slider-image { display: none;}
+    header.has-slider .header-slide .header-slider-image:has(~ .header-slide-image-mobile ) { display: none;}
     header.has-slider .header-slide .header-slider-image.header-slide-image-mobile { display: block; }
 
 
