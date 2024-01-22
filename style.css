@@ -22,11 +22,11 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 @import url('css/normalize.css');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap');
 
-@import url('css/xylem.css?v=1.9');
-@import url('css/base.css?v=1.9');
-@import url('css/layout.css?v=1.9');
-@import url('css/nav.css?v=1.9');
-@import url('css/forms.css?v=1.9');
+@import url('css/xylem.css?v=1.10');
+@import url('css/base.css?v=1.10');
+@import url('css/layout.css?v=1.10');
+@import url('css/nav.css?v=1.10');
+@import url('css/forms.css?v=1.10');
 
-@import url('css/_tablet.css?v=1.9');
-@import url('css/_mobile.css?v=1.9');
+@import url('css/_tablet.css?v=1.10');
+@import url('css/_mobile.css?v=1.10');
