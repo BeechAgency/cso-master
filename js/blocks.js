@@ -57,14 +57,22 @@ document.addEventListener('DOMContentLoaded', function () {
             const tabItem = event.currentTarget;
             const tabId = tabItem.dataset.tabId;
 
-            tabItems.forEach( (tabItem) => {
-                tabItem.classList.remove('active');
+            const tabContentGroupId = tabId.split('__')[0];
+
+            //console.log(tabContentGroupId);
+
+            const parentTabGroup = document.querySelector(`.tab-wrapper[data-tab-group="${tabContentGroupId}"]`)
+            const siblingItems = parentTabGroup.querySelectorAll(`.tab-header__item`);
+            const siblingContents = parentTabGroup.querySelectorAll(`.tab-content`);
+
+            siblingItems.forEach((tabItem) => {
+              tabItem.classList.remove("active");
             });
 
             tabItem.classList.add('active');
 
-            tabContents.forEach( (tabContent) => {
-                tabContent.classList.remove('active');
+            siblingContents.forEach((tabContent) => {
+              tabContent.classList.remove("active");
             });
 
             document.querySelector('#' + tabId).classList.add('active');

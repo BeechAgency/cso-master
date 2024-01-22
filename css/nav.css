@@ -627,6 +627,9 @@ header.has-slider .header-slide .header-slider-image {
     object-fit: cover;
     object-position: center;
 }
+header.has-slider .header-slide .header-slider-image.header-slide-image-mobile {
+    display: none;
+}
 
 .header-slide .text-wrapper {
     position: relative;
@@ -674,4 +677,8 @@ header .btn:hover {
 }
 header .text-wrapper p {
     margin-bottom: 0;
+}
+
+header.text-left  .button-row {
+    justify-content: flex-start;
 }

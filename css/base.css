@@ -271,9 +271,17 @@ img.full-bleed {
 .text-center > .button-row {
 	text-align: center;
 }
-
-.button-row .btn:not(:first-child) {
-    margin-left: 1.5rem;
+.button-row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+}
+.button-row .btn {
+	min-width: fit-content;
+}
+.button-row .btn + .btn {
+	margin-left: 0;
 }
 
 section.block {

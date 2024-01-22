@@ -14,7 +14,7 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
-			var_dump( post_password_required() );
+
 			if ( post_password_required() ) {
 			// Content to display when the post is password protected
 

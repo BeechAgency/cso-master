@@ -9,7 +9,7 @@
         <?= apply_filters('the_content', $fields['content']); ?>
     </div>
 </div>
-<div class="xy-col xy-grid tab-wrapper" data-xy-col="12">
+<div class="xy-col xy-grid tab-wrapper" data-xy-col="12" data-tab-group="<?= 'tab_content_'.$fields['c']?>">
     <ul class="xy-col tab-header" data-xy-col="xl-4 lg-4 md-5 sm-auto">
         <?php 
             $i = 0;
