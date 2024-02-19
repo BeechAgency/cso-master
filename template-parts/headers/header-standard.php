@@ -35,11 +35,13 @@
         </div>
     </div>
     <?php if(!empty($args['header_video'])): ?>
+
         <div class="video-wrapper">
             <video class="lozad" autoplay muted loop playsinline preload="none" data-poster="<?= $background_image[0]; ?>">
                 <source data-src="<?= $args['header_video'] ?>" type="video/mp4">
             </video>
             <img src="<?= $background_image[0]; ?>" class="video-poster" />
         </div>
-    <?php endif; ?>
+    <?php 
+        endif; ?>
 </header>

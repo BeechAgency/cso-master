@@ -198,6 +198,11 @@ section.block.images-block__carousel-gallery, .block.cards-block__article-list {
     font-style: italic;
 }
 
+.card-image img {
+    aspect-ratio: 6 / 4;
+    object-fit: cover;
+}
+
 /* Big Ol Feature */
 .block.cards-block__feature {
     position: relative;

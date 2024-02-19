@@ -537,10 +537,13 @@ header img.video-poster {
 
 }
 
-header video[data-loaded="true"] + img.video-poster {
+header video[data-loaded="true"] + img.video-poster,
+header iframe[data-loaded="true"] + img.video-poster {
 	animation: 1s fadeOut linear normal 1 forwards;
 	animation-delay: 500ms;
 }
+
+
 
 @keyframes fadeOut {
 	0% { opacity: 1; }

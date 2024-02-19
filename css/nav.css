@@ -530,7 +530,8 @@ header .video-wrapper {
     z-index: -1;
 }
 
-header video {
+header video,
+header iframe {
     width: 100%;
     height: 100%;
     object-fit: cover;
