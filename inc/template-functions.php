@@ -40,27 +40,13 @@ add_action( 'wp_head', 'csomaster_pingback_header' );
 if( function_exists('acf_add_options_page') ) {
 	
 	acf_add_options_page(array(
-		'page_title' 	=> 'Theme General Settings',
-		'menu_title'	=> 'School Settings',
+		'page_title' 	=> 'CSO General Settings',
+		'menu_title'	=> 'CSO Settings',
 		'menu_slug' 	=> 'theme-general-settings',
 		'capability'	=> 'edit_posts',
 		'icon_url' 		=> 'dashicons-location',
 		'redirect'		=> false
 	));
-	
-	// TODO: Remove this doggo.
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Theme Header Settings',
-		'menu_title'	=> 'Header',
-		'parent_slug'	=> 'theme-general-settings',
-	));
-	
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Theme Footer Settings',
-		'menu_title'	=> 'Footer',
-		'parent_slug'	=> 'theme-general-settings',
-	));
-	
 }
 function get_school_details() {
 	$school_details = array();
@@ -204,11 +190,19 @@ function get_header_data($pageId = null) {
 	}
 
 	if(is_404()) {
+
+		$error_content = get_field('404_content', 'options');
+		$error_title = get_field('404_title', 'options');
+		$error_image = get_field('404_image', 'options');
+		$error_background_color = get_field('404_background_color', 'options');
+
 		$header_data['header_style'] = 'alternative';
 		$header_data['header_text_alignment'] = 'text-left';
-		$header_data['header_background_color'] = 'has-secondary-light-background-color';
-		$header_data['header_title'] = 'Oops! That page can&rsquo;t be found.';
-		$header_data['header_text'] = 'It looks like nothing was found at this location. Maybe try one of the links below or a search?';
+		$header_data['header_background_color'] = !empty($error_background_color) ? $error_background_color : 'has-secondary-light-background-color';
+		$header_data['header_title'] = !empty($error_title) ? $error_title : 'Oops! That page can&rsquo;t be found.';
+		$header_data['header_text'] = $error_content ?? 'It looks like nothing was found at this location. Maybe try one of the links below or a search?';
+
+		$header_data['header_image'] = $error_image ?? $header_data['header_image'];
 	}
 
     return $header_data;
