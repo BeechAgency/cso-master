@@ -1,5 +1,6 @@
 nav img.logo, aside img.logo {
     max-height: 5.75rem;
+    max-width: 9rem;
     margin: 0 auto 0 0;
     width: auto;
 }
