@@ -376,7 +376,6 @@ section.block.images-block__carousel-gallery, .block.cards-block__article-list {
     align-content: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    /* background-color: var(--primary-light); */
 }
 .post-list .card img {
     width: 100%;
@@ -388,6 +387,11 @@ section.block.images-block__carousel-gallery, .block.cards-block__article-list {
 .post-list .card .card-content, .post-carousel .card .card-content {
     padding: 1.5rem;
     height: 100%;
+}
+
+.search-results .post-list .card {
+    background-color: var(--primary-light); 
+    --base-background-color : var(--primary-light);
 }
 
 .post-carousel .card .card-content {

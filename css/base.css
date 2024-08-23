@@ -66,6 +66,8 @@ html, body {
 body {
 	/* transition: all 150ms ease; */
 	background-color: var(--white);
+	--text-color : var(--body-text-color);
+	--base-background-color : var(--body-bg-color);
 }
 * {
 	box-sizing: border-box;
