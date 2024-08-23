@@ -10,7 +10,7 @@
  */
 
  	$search_background_image = get_field('search_background_image', 'option');
-    $search_background_style = "background: linear-gradient(0deg, var(--primary-dark) 0%, rgba(0,0,0,0.4) 100%), url($search_background_image); background-position: top center;";
+    $search_background_style = "background: linear-gradient(0deg, var(--primary-dark) 0%, rgba(0,0,0,0.4) 100%), url($search_background_image); background-position: top center; background-size: cover;";
 ?>
 
 	<?php get_template_part( 'template-parts/navs/nav', 'footer' ); ?>
