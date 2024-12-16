@@ -396,7 +396,7 @@ section.block.images-block__carousel-gallery, .block.cards-block__article-list {
 
 .post-carousel .card .card-content {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
