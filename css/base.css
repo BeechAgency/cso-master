@@ -522,7 +522,7 @@ header.has-top-gradient::after {
     z-index: 0;
 }
 
-header.has-top-gradient > div {
+header.has-top-gradient > div:not(.video-wrapper) {
     position: relative;
     z-index: 1;
 }
