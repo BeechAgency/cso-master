@@ -163,3 +163,31 @@ document.addEventListener('DOMContentLoaded', function () {
 }() );
 
 //console.log('YAY');
+
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('Hover on the events');
+
+    const eventLists = document.querySelectorAll('.text-block__upcoming-events');
+
+    eventLists.forEach((eventList) => {
+      const images = eventList.querySelectorAll("img");
+      const items = eventList.querySelectorAll(".event-item");
+
+      items.forEach((item) => {
+        item.addEventListener("mouseover", (event) => {
+          const index = item.dataset.eventIndex;
+          const image = eventList.querySelector(
+            'img.event-image-with-index[data-event-index="' + index + '"]'
+          );
+
+          images.forEach((image) => {
+            image.classList.remove("active");
+          });
+
+          if(image) {
+            image.classList.add("active");
+          }
+        });
+      });
+    });
+});
