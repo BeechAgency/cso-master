@@ -3341,16 +3341,16 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_67ee0c1da3dc4",
-                            "label": "Title",
-                            "name": "_title",
+                            "key": "field_67ee0c37a3dc5",
+                            "label": "Subtitle",
+                            "name": "_subtitle",
                             "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "70",
                                 "class": "",
                                 "id": ""
                             },
@@ -3362,16 +3362,47 @@
                             "append": ""
                         },
                         {
-                            "key": "field_67ee0c37a3dc5",
-                            "label": "Subtitle",
-                            "name": "_subtitle",
+                            "key": "field_67f36d0f30e82",
+                            "label": "Subtitle Colour",
+                            "name": "_subtitle_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "30",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "has-black-color": "Black",
+                                "has-white-color": "White",
+                                "has-primary-dark-color": "Primary Dark",
+                                "has-primary-light-color": "Primary Light",
+                                "has-secondary-dark-color": "Secondary Dark",
+                                "has-secondary-light-color": "Secondary Light"
+                            },
+                            "default_value": "has-primary-dark-color",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_67ee0c1da3dc4",
+                            "label": "Title",
+                            "name": "_title",
                             "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "70",
                                 "class": "",
                                 "id": ""
                             },
@@ -3381,6 +3412,37 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_67f36ccc30e81",
+                            "label": "Title Colour",
+                            "name": "_text_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "30",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "has-black-color": "Black",
+                                "has-white-color": "White",
+                                "has-primary-dark-color": "Primary Dark",
+                                "has-primary-light-color": "Primary Light",
+                                "has-secondary-dark-color": "Secondary Dark",
+                                "has-secondary-light-color": "Secondary Light"
+                            },
+                            "default_value": "has-primary-dark-color",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": ""
                         },
                         {
                             "key": "field_67ee0c40a3dc6",
@@ -3447,5 +3509,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1743655114
+    "modified": 1744007051
 }
