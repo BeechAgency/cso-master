@@ -226,6 +226,7 @@ function get_block_fields($pageId = null) {
 
 	$fields['background_color'] = get_acf_value('_background_color', 'sub', $pageId);
 	$fields['text_color'] = get_acf_value('_text_color', 'sub', $pageId);
+	$fields['subtitle_color'] = get_acf_value('_subtitle_color', 'sub', $pageId);
 
 	$fields['position'] = get_acf_value('_position', 'sub', $pageId);
 	$fields['style'] = get_acf_value('_style', 'sub', $pageId);

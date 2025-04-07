@@ -6,7 +6,7 @@
 
 
     // Nifty null check
-    $field_names = array('subtitle', 'title', 'image');
+    $field_names = array('subtitle', 'title', 'image', 'subtitle_color', 'text_color');
 
     foreach($field_names as $field_name) {
         if(isset($fields[$field_name])) {
@@ -22,8 +22,8 @@
 ?>
 <div class="xy-col text-wrapper" data-xy-col="12" data-xy-start="auto">
     <div class="heading-group has-primary-color">
-        <?= conditionally_output_field($subtitle, '<h5>', '</h5>'); ?>
-        <?= conditionally_output_field($title, '<h2>', '</h2>'); ?>
+        <?= conditionally_output_field($subtitle, '<h5 class="'.$subtitle_color.'">', '</h5>'); ?>
+        <?= conditionally_output_field($title, '<h2 class="'.$text_color.'">', '</h2>'); ?>
     </div>
 </div>
 <div class="xy-col xy-grid" data-xy-col="12" data-xy-start="auto">

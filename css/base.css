@@ -766,7 +766,7 @@ div.gallery.gallery-style-expanded.gallery-columns-2 {
 	position: absolute;
 	right: 0;
 	bottom: 50%;
-	transform: translateX(-50%) translateY(50%);
+	transform: translateX(0%) translateY(50%);
 }
 
 .lightbox-dots {
