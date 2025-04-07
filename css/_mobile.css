@@ -115,7 +115,7 @@
         display: block;
     }
     .gallery figure {
-        margin-bottom: 1rem;
+        margin-bottom: 0rem;
     }
     .gallery img { margin-inline: auto; }
     .gallery-caption.wp-caption-text { margin-top: 0.25rem; text-align: center; }
@@ -172,5 +172,15 @@
     div.gallery.gallery-style-expanded,
     div.gallery.gallery-style-expanded.gallery-columns-2 {
         --_expand: 0rem;
+    }
+    div.gallery {
+        --gallery-cols : 2;
+    }
+    .lightbox {
+        padding: var(--xy-gutter);
+    }
+    .lightbox .lightbox-content {
+        max-width: 100%;
+        max-height: 100%;
     }
 }
