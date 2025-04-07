@@ -556,6 +556,9 @@ header iframe[data-loaded="true"] + img.video-poster {
 }
 
 /** Events! **/
+.block.text-block__upcoming-events {
+	padding-block: 7rem;
+}
 .events-list {
 	display: flex;
 	flex-direction: column;
@@ -570,7 +573,8 @@ header iframe[data-loaded="true"] + img.video-poster {
 	padding-bottom: 1rem;
 	--_highlight : var(--secondary-dark);
 }
-.event-item:hover .event-date { 
+.event-item:hover .event-date,
+.event-item.active .event-date { 
 	background-color: var(--_highlight);
 }
 .event-date {
@@ -610,7 +614,7 @@ header iframe[data-loaded="true"] + img.video-poster {
 .event-image-with-index {
 	--_event-index : 0;
 	position: absolute;
-	top: calc(var(--_event-index) * 1.5rem );
+	top: 0;
 	left : 0;
 	z-index: 1;
 	width: 100%;
@@ -623,3 +627,171 @@ header iframe[data-loaded="true"] + img.video-poster {
 	opacity: 1;
 }
 .event-image-with-index.active ~ img { opacity: 0;}
+
+
+/** Post Prose Styles **/
+.single-post .prose {
+	h1,h2,h3,h4,h5,h6 { 
+		color: var(--primary-dark);
+	}
+
+	p { overflow: initial;}
+
+	h1:not(:first-child),
+	h2:not(:first-child),
+	h3:not(:first-child),
+	h4:not(:first-child),
+	h5:not(:first-child),
+	h6:not(:first-child) {
+		margin-top: 2.5rem;
+	}
+
+	img.aligncenter {
+		--_expand : 8rem;
+		--_width : calc( 100% + var(--_expand) * 2 );
+		max-width: var(--_width);
+		width: var(--_width);
+		translate: calc(var(--_expand) * -1) 0;
+	}
+
+	p > img { 
+		margin: 2rem 0 3.5rem;
+	}
+}
+
+/** Gallery Shortcode **/
+div.gallery {
+	display: grid;
+	grid-template-columns: repeat(var(--gallery-cols, 3), minmax(0, 1fr));
+	gap: 0.75rem;
+	margin: 2rem 0 3.5rem;
+	padding: 0;
+}
+
+div.gallery img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	aspect-ratio: 1 / 1;
+}
+
+div.gallery.gallery-style-expanded {
+	--_expand : 8rem;
+	--_width : calc( 100% + var(--_expand) * 2 );
+	max-width: var(--_width);
+	width: var(--_width);
+	translate: calc(var(--_expand) * -1) 0;
+}
+div.gallery.gallery-style-expanded.gallery-columns-2 {
+	--_expand : 4rem;
+}
+
+/* Lightbox container */
+.lightbox {
+  display: none;
+  position: fixed;
+  flex-direction: column;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Image inside the lightbox */
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  margin: auto;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 0.25rem;
+    background-color: var(--primary-dark);
+    line-height: 1;
+    display: block;
+}
+/* Navigation buttons */
+.lightbox-prev,
+.lightbox-next {
+
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  z-index: 1000;
+}
+
+.lightbox-prev {
+  left: 10px;
+}
+
+.lightbox-next {
+  right: 10px;
+}
+
+/* Optional: Make buttons bigger when hovered */
+.lightbox-prev:hover, 
+.lightbox-next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.lightbox-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+  position: relative;
+  width: 90%;
+  padding: 0rem;
+}
+.lightbox-buttons {
+	margin-left: auto;
+	position: absolute;
+	right: 0;
+	bottom: 50%;
+	transform: translateX(-50%) translateY(50%);
+}
+
+.lightbox-dots {
+	display: flex;
+	flex-direction: row;
+	gap: 0.25rem;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	bottom: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(50%);
+}
+.lightbox-dots .dot {
+	cursor: pointer;
+	border-radius: 100%;
+	height: 0.75rem;
+	width: 0.75rem;
+	background-color: white;
+	transition: all 150ms ease;
+	opacity: 0.4;
+}
+.lightbox-dots .dot.active {
+	opacity: 1;}

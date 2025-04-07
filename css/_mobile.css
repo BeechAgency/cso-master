@@ -168,4 +168,9 @@
         display: none;
     }
 
+    .single-post .prose img.aligncenter,
+    div.gallery.gallery-style-expanded,
+    div.gallery.gallery-style-expanded.gallery-columns-2 {
+        --_expand: 0rem;
+    }
 }

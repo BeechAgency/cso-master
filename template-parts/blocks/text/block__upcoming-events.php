@@ -26,8 +26,8 @@
         <?= conditionally_output_field($title, '<h2>', '</h2>'); ?>
     </div>
 </div>
-<div class="xy-col xy-grid" data-xy-col="12"  data-xy-start="auto">
-    <div class="xy-col" data-xy-col="5" data-xy-start="auto">
+<div class="xy-col xy-grid" data-xy-col="12" data-xy-start="auto">
+    <div class="xy-col events-image-col"  data-xy-col="xl-5 lg-5 md-12" data-xy-start="auto" >
         <div class="events-image-wrap">
             <?php 
             if(!empty($upcoming_events)):
@@ -46,7 +46,7 @@
             <?= $image ?>
         </div>
     </div>
-    <div class="xy-col" data-xy-col="6" data-xy-start="7">
+    <div class="xy-col" data-xy-col='xl-6 lg-6 md-12' data-xy-start='xl-7 lg-7 md-auto'>
         <div class="events-list">
             <?php
              if(!empty($upcoming_events)):

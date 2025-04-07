@@ -180,6 +180,12 @@ document.addEventListener('DOMContentLoaded', function () {
             'img.event-image-with-index[data-event-index="' + index + '"]'
           );
 
+          items.forEach((item) => {
+            item.classList.remove("active");
+          });
+
+          item.classList.add("active");
+
           images.forEach((image) => {
             image.classList.remove("active");
           });
@@ -190,4 +196,171 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       });
     });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  //* GALLERY LIGHTBOX! *//
+  // Check if there is a gallery with the 'gallery-lightbox-on' class
+  const allLightboxGallery = document.querySelectorAll(
+    "div.gallery.gallery-lightbox-on"
+  );
+
+  // Store all images in the gallery and create a reference to the current image
+  const images = Array.from(
+    document.querySelectorAll("div.gallery.gallery-lightbox-on figure img")
+  );
+
+  if (allLightboxGallery.length > 0) {
+    // Create the lightbox container if it's not already in the document
+    if (!document.getElementById("lightbox")) {
+      const lightbox = document.createElement("div");
+      lightbox.id = "lightbox";
+      lightbox.classList.add("lightbox");
+
+      // Add the close button to the lightbox
+      const closeButton = document.createElement("span");
+      closeButton.classList.add("close-btn");
+      closeButton.innerHTML = "&times;";
+      lightbox.appendChild(closeButton);
+
+      // Add the lightbox image container
+      const lightboxContent = document.createElement("img");
+      lightboxContent.classList.add("lightbox-content");
+      lightbox.appendChild(lightboxContent);
+
+      const lightboxNav = document.createElement("div");
+      lightboxNav.classList.add("lightbox-nav");
+
+      const lightboxNavButtons = document.createElement("div");
+      lightboxNavButtons.classList.add("lightbox-buttons");
+
+      console.log(lightboxNav);
+      // Add previous and next buttons
+      const prevButton = document.createElement("span");
+      prevButton.classList.add("lightbox-prev");
+      prevButton.innerHTML = "&#10094;";
+
+      const nextButton = document.createElement("span");
+      nextButton.classList.add("lightbox-next");
+      nextButton.innerHTML = "&#10095;";
+
+      lightbox.appendChild(lightboxNav);
+
+      const dotsContainer = document.createElement("ul");
+      dotsContainer.classList.add("lightbox-dots");
+
+      lightboxNav.appendChild(dotsContainer);
+
+      lightboxNavButtons.appendChild(prevButton);
+      lightboxNavButtons.appendChild(nextButton);
+
+      lightboxNav.appendChild(lightboxNavButtons);
+
+      images.forEach((image, index) => {
+        const dot = document.createElement("li");
+        dot.classList.add("dot");
+        dot.dataset.index = index;
+        dotsContainer.appendChild(dot);
+      });
+
+      // Append the lightbox to the body
+      document.body.appendChild(lightbox);
+
+      // Close the lightbox when the close button is clicked
+      closeButton.addEventListener("click", () => {
+        lightbox.style.display = "none";
+      });
+
+      // Close the lightbox if the user clicks outside the image
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === event.currentTarget) {
+          lightbox.style.display = "none";
+        }
+      });
+    }
+
+    let currentImageIndex = 0; // Track the current image index
+
+    // Function to open the lightbox with the selected image
+    function openLightbox(image) {
+      currentImageIndex = images.indexOf(image); // Set the current image index
+      const largeImageSrc = image.getAttribute("src");
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImage = lightbox.querySelector(".lightbox-content");
+      lightboxImage.src = largeImageSrc;
+      lightbox.style.display = "flex";
+    }
+
+    // Add event listeners to gallery images within the lightbox-enabled gallery
+    images.forEach((image) => {
+      image.addEventListener("click", (event) => {
+        // Prevent default action
+        event.preventDefault();
+        openLightbox(event.target);
+      });
+    });
+
+    function updateDots() {
+      const dots = document.querySelectorAll(".dot");
+      dots.forEach((dot, index) => {
+        if (index === currentImageIndex) {
+          dot.classList.add("active");
+        } else {
+          dot.classList.remove("active");
+        }
+      });
+    }
+
+    function nextImage() {
+      // Loop back to the last image if the current image is the first one
+      if (currentImageIndex === 0) {
+        currentImageIndex = images.length - 1; // Go to the last image
+      } else {
+        currentImageIndex--; // Go to the previous image
+      }
+
+      openLightbox(images[currentImageIndex]);
+      updateDots(); // If you have any dots or other indicators to update
+    }
+
+    function prevImage() {
+      // Loop back to the first image if the current image is the last one
+      if (currentImageIndex === images.length - 1) {
+        currentImageIndex = 0; // Go to the first image
+      } else {
+        currentImageIndex++; // Go to the next image
+      }
+
+      openLightbox(images[currentImageIndex]);
+      updateDots(); // If you have any dots or other indicators to update
+    }
+
+    // Add navigation functionality for next and previous buttons
+    document
+      .querySelector(".lightbox-prev")
+      .addEventListener("click", nextImage);
+    document
+      .querySelector(".lightbox-next")
+      .addEventListener("click", prevImage);
+
+    document.querySelectorAll(".dot").forEach((dot) => {
+      dot.addEventListener("click", (event) => {
+        const index = parseInt(event.target.dataset.index);
+        currentImageIndex = index;
+        openLightbox(images[currentImageIndex]);
+        updateDots(); // If you have any dots or other indicators to update
+      });
+    });
+
+    // Event listener for keyboard navigation
+    document.addEventListener("keydown", (event) => {
+      // Check if the lightbox is visible before handling keyboard navigation
+      const lightbox = document.getElementById("lightbox");
+      if (lightbox.style.display === "flex") {
+        if (event.key === "ArrowLeft") { nextImage(); }
+        if (event.key === "ArrowRight") { prevImage(); }
+      }
+    });
+  }
 });

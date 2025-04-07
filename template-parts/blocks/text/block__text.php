@@ -82,7 +82,7 @@
     //$cta_group = '<div class="button-group">'.do_a_cta($fields['cta']).do_a_cta($fields['cta_secondary']).'</div>';
 
 ?>
-<div class="xy-col text-wrapper" data-xy-col="<?= $grid_cols ?>" data-xy-start="<?= $grid_start ?>" >
+<div class="xy-col text-wrapper prose" data-xy-col="<?= $grid_cols ?>" data-xy-start="<?= $grid_start ?>" >
     <?php /* conditionally_output_field($fields['subtitle'], '<h5>', '</h5>'); ?>
     <?= conditionally_output_field($fields['title'], '<h2>', '</h2>'); */ 
         echo apply_filters('the_content', $fields['title']);
@@ -108,7 +108,7 @@
                 the_row(); 
                 ?>
     
-    <div class="xy-col text-column" data-xy-col="<?= $cols ?>" data-xy-start="<?= $start ?>">
+    <div class="xy-col text-column prose" data-xy-col="<?= $cols ?>" data-xy-start="<?= $start ?>">
         <?php $content = get_sub_field('content'); 
                 echo apply_filters('the_content', $content);?>
     </div>
