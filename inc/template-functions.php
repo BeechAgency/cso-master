@@ -37,6 +37,7 @@ function csomaster_pingback_header() {
 add_action( 'wp_head', 'csomaster_pingback_header' );
 
 // register acf options page
+
 if( function_exists('acf_add_options_page') ) {
 	
 	acf_add_options_page(array(
@@ -47,7 +48,21 @@ if( function_exists('acf_add_options_page') ) {
 		'icon_url' 		=> 'dashicons-location',
 		'redirect'		=> false
 	));
+
+	acf_add_options_page( array(
+		'page_title' => 'Upcoming Events',
+		'menu_slug' => 'upcoming-events',
+		'menu_title' => 'Events',
+		'position' => 22,
+		'redirect' => false,
+		'menu_icon' => array(
+			'type' => 'dashicons',
+			'value' => 'dashicons-calendar-alt',
+		),
+		'icon_url' => 'dashicons-calendar-alt',
+	) );
 }
+
 function get_school_details() {
 	$school_details = array();
 
