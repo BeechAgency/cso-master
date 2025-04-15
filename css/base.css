@@ -732,23 +732,27 @@ div.gallery.gallery-style-expanded.gallery-columns-2 {
   color: white;
   cursor: pointer;
   padding: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  /*background-color: rgba(0, 0, 0, 0.5);*/
   border: none;
   z-index: 1000;
 }
 
 .lightbox-prev {
   left: 10px;
+  margin-right: 1rem;
 }
 
 .lightbox-next {
   right: 10px;
 }
+.lightbox-prev svg {
+    rotate: 180deg;
+}
 
 /* Optional: Make buttons bigger when hovered */
 .lightbox-prev:hover, 
 .lightbox-next:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+  /*background-color: rgba(0, 0, 0, 0.7);*/
 }
 
 .lightbox-nav {

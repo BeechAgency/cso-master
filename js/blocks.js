@@ -236,14 +236,18 @@ document.addEventListener("DOMContentLoaded", function () {
       lightboxNavButtons.classList.add("lightbox-buttons");
 
       console.log(lightboxNav);
+      const arrowSVG =
+        '<svg xmlns="http://www.w3.org/2000/svg" width="38.453" height="29.921"><defs><clipPath id="prefix__a"><path data-name="Rectangle 124" fill="none" stroke="rgba(0,0,0,0)" stroke-width="1.5" d="M0 0h38.1v27.007H0z"/></clipPath></defs><g data-name="Group 295"><path data-name="Path 481" d="M37.393 14.964l-13.15-13.15V28.11z" fill="none" stroke="rgba(0,0,0,0)" stroke-width="1.5"/><g data-name="Group 291"><g data-name="Group 290" clip-path="url(#prefix__a)" transform="rotate(180 19.05 14.232)"><path data-name="Path 482" d="M13.857.354L.707 13.5l13.15 13.15" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1.5"/></g></g><path data-name="Path 483" d="M37.393 14.964h0z" fill="none" stroke="rgba(0,0,0,0)" stroke-width="1.5"/><g data-name="Group 293"><g data-name="Group 292" clip-path="url(#prefix__a)" transform="rotate(180 19.05 14.232)"><path data-name="Line 6" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1.5" d="M38.1 13.504H.707"/></g></g></g></svg>';
+
       // Add previous and next buttons
       const prevButton = document.createElement("span");
       prevButton.classList.add("lightbox-prev");
-      prevButton.innerHTML = "&#10094;";
+
+      prevButton.innerHTML = arrowSVG// "&#10094;";
 
       const nextButton = document.createElement("span");
       nextButton.classList.add("lightbox-next");
-      nextButton.innerHTML = "&#10095;";
+      nextButton.innerHTML = arrowSVG //"&#10095;";
 
       lightbox.appendChild(lightboxNav);
 
@@ -336,7 +340,7 @@ document.addEventListener("DOMContentLoaded", function () {
       updateDots(); // If you have any dots or other indicators to update
     }
 
-    // Add navigation functionality for next and previous buttons
+    // Add navigation functionality $role $role for next and previous buttons
     document
       .querySelector(".lightbox-prev")
       .addEventListener("click", nextImage);
@@ -358,9 +362,13 @@ document.addEventListener("DOMContentLoaded", function () {
       // Check if the lightbox is visible before handling keyboard navigation
       const lightbox = document.getElementById("lightbox");
       if (lightbox.style.display === "flex") {
+
         if (event.key === "ArrowLeft") { nextImage(); }
+        if (event.key === " ") { nextImage(); event.preventDefault(); }
         if (event.key === "ArrowRight") { prevImage(); }
+        if (event.key === "Escape" ) { lightbox.style.display = "none";}
       }
     });
   }
 });
+
