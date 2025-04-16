@@ -12,3 +12,8 @@ html, body {
     --text-color: black;
     --base-background-color: white;
 }
+
+.gallery br { display: none; }
+.gallery .gallery-item { width: 100%; }
+
+.gallery { max-width: 42rem; margin-inline: auto; }

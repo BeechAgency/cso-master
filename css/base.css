@@ -216,7 +216,7 @@ p > img {
     margin-bottom: 1rem;
 }*/
 
-img.aligncenter {
+img.aligncenter, figure.aligncenter {
     margin-inline: auto;
     margin-bottom: 1rem;
 }
@@ -231,6 +231,10 @@ img.alignleft {
     display: inline;
     float: left;
     margin-right: 1rem;
+}
+.wp-caption-text { 
+	margin-top: 0.25rem;
+	font-size: var(--fs-s1);
 }
 
 img[src*=".svg"] {
@@ -646,7 +650,8 @@ header iframe[data-loaded="true"] + img.video-poster {
 		margin-top: 2.5rem;
 	}
 
-	img.aligncenter {
+	img.aligncenter,
+	figure.aligncenter {
 		--_expand : 8rem;
 		--_width : calc( 100% + var(--_expand) * 2 );
 		max-width: var(--_width);
@@ -654,7 +659,8 @@ header iframe[data-loaded="true"] + img.video-poster {
 		translate: calc(var(--_expand) * -1) 0;
 	}
 
-	p > img { 
+	p > img,
+	p > figure { 
 		margin: 2rem 0 3.5rem;
 	}
 }
@@ -685,6 +691,12 @@ div.gallery.gallery-style-expanded {
 div.gallery.gallery-style-expanded.gallery-columns-2 {
 	--_expand : 4rem;
 }
+div.gallery .gallery-caption {
+	margin-top: 0.25rem;
+	display: none;
+}
+div.gallery figure.gallery-item { position: relative;	}
+
 
 /* Lightbox container */
 .lightbox {
@@ -707,6 +719,14 @@ div.gallery.gallery-style-expanded.gallery-columns-2 {
   max-width: 90%;
   max-height: 90%;
   margin: auto;
+  color: white;
+}
+.lightbox-content img {
+  width: 100%;
+  object-fit: contain;
+}
+.lightbox-figure-caption {
+	margin-top: 0.5rem;
 }
 
 /* Close button */

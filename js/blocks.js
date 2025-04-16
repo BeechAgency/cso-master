@@ -225,9 +225,17 @@ document.addEventListener("DOMContentLoaded", function () {
       lightbox.appendChild(closeButton);
 
       // Add the lightbox image container
-      const lightboxContent = document.createElement("img");
+      const lightboxContent = document.createElement("figure");
       lightboxContent.classList.add("lightbox-content");
       lightbox.appendChild(lightboxContent);
+
+      const lightboxImage = document.createElement("img");
+      lightboxImage.classList.add("lightbox-image");
+      lightboxContent.appendChild(lightboxImage);
+
+      const lightboxFigureCaption = document.createElement("figcaption");
+      lightboxFigureCaption.classList.add("lightbox-figure-caption");
+      lightboxContent.appendChild(lightboxFigureCaption);
 
       const lightboxNav = document.createElement("div");
       lightboxNav.classList.add("lightbox-nav");
@@ -291,8 +299,19 @@ document.addEventListener("DOMContentLoaded", function () {
       currentImageIndex = images.indexOf(image); // Set the current image index
       const largeImageSrc = image.getAttribute("src");
       const lightbox = document.getElementById("lightbox");
-      const lightboxImage = lightbox.querySelector(".lightbox-content");
+      const lightboxImage = lightbox.querySelector(".lightbox-image");
+      const lightboxCaption = lightbox.querySelector(".lightbox-figure-caption");
+
+      const figure = image.closest("figure");
+      const caption = figure.querySelector(".gallery-caption");
+
       lightboxImage.src = largeImageSrc;
+
+      if (caption) {
+        lightboxCaption.textContent = caption.textContent;
+      } else {
+        lightboxCaption.textContent = "";
+      }
       lightbox.style.display = "flex";
     }
 
