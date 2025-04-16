@@ -48,6 +48,10 @@
             if(!empty($filtered_events)):
                 $event_index = 0;
                 foreach($filtered_events as $event):
+                    if ($event_index >= 7) {
+                        break;
+                    }
+
                     $event_image = $event['image'];
                     $event_title = $event['title'];
                     $classes = 'events-image event-image-with-index'; 
@@ -68,6 +72,10 @@
              if(!empty($filtered_events)):
                 $event_index = 0;
                 foreach($filtered_events as $event):
+                    if ($event_index >= 7) {
+                        break;
+                    }
+
                     $title = $event['title'];
                     $desecription = $event['description'];
                     $link = $event['link'];
