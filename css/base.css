@@ -724,6 +724,7 @@ div.gallery figure.gallery-item { position: relative;	}
 .lightbox-content img {
   width: 100%;
   object-fit: contain;
+  height: 100%;
 }
 .lightbox-figure-caption {
 	margin-top: 0.5rem;
