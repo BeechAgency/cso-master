@@ -99,37 +99,37 @@ h1,h2,h3,h4,h5,h6,p {
 h1,h2,h4,h5 { font-family: var(--ff-serif); font-weight: var(--fw-regular); }
 h3,h6 { font-family: var(--ff-sans); font-weight: var(--fw-regular); }
 
-h1 {
+h1, .h1 {
 	font-size: var(--fs-h1);
 	margin-bottom: 2.1rem;
 	line-height: 1;
 }
-h2 {
+h2, .h2 {
 	font-size: var(--fs-h2);
 	line-height: 1;
 	margin-bottom: 0.5em;
 	font-weight: var(--fw-light);
 }
-h3 {
+h3, .h3 {
 	font-size: var(--fs-h3);
 	line-height: 1.1;
 	margin-bottom: 0.5em;
 }
-h4 {
+h4, .h4 {
 	font-size: var(--fs-h4);
 	margin-bottom: 0.5em;
 	line-height: 1.1;
 }
-h5 {
+h5, .h5 {
 	font-size: var(--fs-h5);
 	margin-bottom: 0.5em;
 	line-height: 1.1;
 }
-h6 {
+h6, .h6 {
 	font-size: var(--fs-h6);
 	line-height: 1.1;
 }
-p {
+p, .p {
 	font-size: var(--fs-base);
 	line-height: var(--base-line-height);
 	margin-bottom: 1rem;
@@ -143,6 +143,9 @@ p:empty {
 }
 .smaller {
 	font-size: var(--fs-s2);
+}
+.bold {
+	font-weight: var(--fw-bold);
 }
 a {
 	text-decoration: none;
@@ -213,7 +216,7 @@ p > img {
     margin-bottom: 1rem;
 }*/
 
-img.aligncenter {
+img.aligncenter, figure.aligncenter {
     margin-inline: auto;
     margin-bottom: 1rem;
 }
@@ -228,6 +231,10 @@ img.alignleft {
     display: inline;
     float: left;
     margin-right: 1rem;
+}
+.wp-caption-text { 
+	margin-top: 0.25rem;
+	font-size: var(--fs-s1);
 }
 
 img[src*=".svg"] {
@@ -551,3 +558,265 @@ header iframe[data-loaded="true"] + img.video-poster {
 	0% { opacity: 1; }
 	100% { opacity: 0;}
 }
+
+/** Events! **/
+.block.text-block__upcoming-events {
+	padding-block: 7rem;
+}
+.events-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+.event-item {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	gap: 2rem;
+	border-bottom: solid 1px color-mix(in srgb, currentColor, transparent 80%);
+	padding-bottom: 1rem;
+	--_highlight : var(--secondary-dark);
+}
+.event-item:hover .event-date,
+.event-item.active .event-date { 
+	background-color: var(--_highlight);
+}
+.event-date {
+	border-radius: 0.125rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.25rem;
+	padding: 0.25rem;
+	transition: all 150ms ease;
+}
+
+.event-date .event-date__day {
+	font-size: var(--fs-h4);
+	font-weight: var(--fw-bold);
+	line-height: 1;
+}
+.event-date .event-date__month {
+	font-size: var(--fs-h6);
+	text-transform: uppercase;
+	line-height: 1;
+}
+.event-date .event-date__spacer {
+	width: 1rem;
+	border-top: 1px solid currentColor;
+}
+.events-image-wrap img {
+	aspect-ratio: 3 / 4;
+	object-fit: cover;
+	transition: all 150ms ease;
+}
+.events-image-wrap {
+	position: relative;
+}
+
+.event-image-with-index {
+	--_event-index : 0;
+	position: absolute;
+	top: 0;
+	left : 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0;
+	transition: all 150ms ease;
+}
+.event-image-with-index.active {
+	opacity: 1;
+}
+.event-image-with-index.active ~ img { opacity: 0;}
+
+
+/** Post Prose Styles **/
+.single-post .prose {
+	h1,h2,h3,h4,h5,h6 { 
+		color: var(--primary-dark);
+	}
+
+	p { overflow: initial;}
+
+	h1:not(:first-child),
+	h2:not(:first-child),
+	h3:not(:first-child),
+	h4:not(:first-child),
+	h5:not(:first-child),
+	h6:not(:first-child) {
+		margin-top: 2.5rem;
+	}
+
+	img.aligncenter,
+	figure.aligncenter {
+		--_expand : 8rem;
+		--_width : calc( 100% + var(--_expand) * 2 );
+		max-width: var(--_width);
+		width: var(--_width);
+		translate: calc(var(--_expand) * -1) 0;
+	}
+
+	p > img,
+	p > figure { 
+		margin: 2rem 0 3.5rem;
+	}
+}
+
+/** Gallery Shortcode **/
+div.gallery {
+	display: grid;
+	grid-template-columns: repeat(var(--gallery-cols, 3), minmax(0, 1fr));
+	gap: 0.75rem;
+	margin: 2rem 0 3.5rem;
+	padding: 0;
+}
+
+div.gallery img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	aspect-ratio: 1 / 1;
+}
+
+div.gallery.gallery-style-expanded {
+	--_expand : 8rem;
+	--_width : calc( 100% + var(--_expand) * 2 );
+	max-width: var(--_width);
+	width: var(--_width);
+	translate: calc(var(--_expand) * -1) 0;
+}
+div.gallery.gallery-style-expanded.gallery-columns-2 {
+	--_expand : 4rem;
+}
+div.gallery .gallery-caption {
+	margin-top: 0.25rem;
+	display: none;
+}
+div.gallery figure.gallery-item { position: relative;	}
+
+
+/* Lightbox container */
+.lightbox {
+  display: none;
+  position: fixed;
+  flex-direction: column;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Image inside the lightbox */
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  margin: auto;
+  color: white;
+}
+.lightbox-content img {
+  width: 100%;
+  object-fit: contain;
+  height: 100%;
+}
+.lightbox-figure-caption {
+	margin-top: 0.5rem;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 0.25rem;
+    background-color: var(--primary-dark);
+    line-height: 1;
+    display: block;
+}
+/* Navigation buttons */
+.lightbox-prev,
+.lightbox-next {
+
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  /*background-color: rgba(0, 0, 0, 0.5);*/
+  border: none;
+  z-index: 1000;
+}
+
+.lightbox-prev {
+  left: 10px;
+  margin-right: 1rem;
+}
+
+.lightbox-next {
+  right: 10px;
+}
+.lightbox-prev svg {
+    rotate: 180deg;
+}
+
+/* Optional: Make buttons bigger when hovered */
+.lightbox-prev:hover, 
+.lightbox-next:hover {
+  /*background-color: rgba(0, 0, 0, 0.7);*/
+}
+
+.lightbox-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+  position: relative;
+  width: 90%;
+  padding: 0rem;
+}
+.lightbox-buttons {
+	margin-left: auto;
+	position: absolute;
+	right: 0;
+	bottom: 50%;
+	transform: translateX(0%) translateY(50%);
+}
+
+.lightbox-dots {
+	display: flex;
+	flex-direction: row;
+	gap: 0.25rem;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	bottom: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(50%);
+}
+.lightbox-dots .dot {
+	cursor: pointer;
+	border-radius: 100%;
+	height: 0.75rem;
+	width: 0.75rem;
+	background-color: white;
+	transition: all 150ms ease;
+	opacity: 0.4;
+}
+.lightbox-dots .dot.active {
+	opacity: 1;}

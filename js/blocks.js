@@ -163,3 +163,231 @@ document.addEventListener('DOMContentLoaded', function () {
 }() );
 
 //console.log('YAY');
+
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('Hover on the events');
+
+    const eventLists = document.querySelectorAll('.text-block__upcoming-events');
+
+    eventLists.forEach((eventList) => {
+      const images = eventList.querySelectorAll("img");
+      const items = eventList.querySelectorAll(".event-item");
+
+      items.forEach((item) => {
+        item.addEventListener("mouseover", (event) => {
+          const index = item.dataset.eventIndex;
+          const image = eventList.querySelector(
+            'img.event-image-with-index[data-event-index="' + index + '"]'
+          );
+
+          items.forEach((item) => {
+            item.classList.remove("active");
+          });
+
+          item.classList.add("active");
+
+          images.forEach((image) => {
+            image.classList.remove("active");
+          });
+
+          if(image) {
+            image.classList.add("active");
+          }
+        });
+      });
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  //* GALLERY LIGHTBOX! *//
+  // Check if there is a gallery with the 'gallery-lightbox-on' class
+  const allLightboxGallery = document.querySelectorAll(
+    "div.gallery.gallery-lightbox-on"
+  );
+
+  // Store all images in the gallery and create a reference to the current image
+  const images = Array.from(
+    document.querySelectorAll("div.gallery.gallery-lightbox-on figure img")
+  );
+
+  if (allLightboxGallery.length > 0) {
+    // Create the lightbox container if it's not already in the document
+    if (!document.getElementById("lightbox")) {
+      const lightbox = document.createElement("div");
+      lightbox.id = "lightbox";
+      lightbox.classList.add("lightbox");
+
+      // Add the close button to the lightbox
+      const closeButton = document.createElement("span");
+      closeButton.classList.add("close-btn");
+      closeButton.innerHTML = "&times;";
+      lightbox.appendChild(closeButton);
+
+      // Add the lightbox image container
+      const lightboxContent = document.createElement("figure");
+      lightboxContent.classList.add("lightbox-content");
+      lightbox.appendChild(lightboxContent);
+
+      const lightboxImage = document.createElement("img");
+      lightboxImage.classList.add("lightbox-image");
+      lightboxContent.appendChild(lightboxImage);
+
+      const lightboxFigureCaption = document.createElement("figcaption");
+      lightboxFigureCaption.classList.add("lightbox-figure-caption");
+      lightboxContent.appendChild(lightboxFigureCaption);
+
+      const lightboxNav = document.createElement("div");
+      lightboxNav.classList.add("lightbox-nav");
+
+      const lightboxNavButtons = document.createElement("div");
+      lightboxNavButtons.classList.add("lightbox-buttons");
+
+      console.log(lightboxNav);
+      const arrowSVG =
+        '<svg xmlns="http://www.w3.org/2000/svg" width="38.453" height="29.921"><defs><clipPath id="prefix__a"><path data-name="Rectangle 124" fill="none" stroke="rgba(0,0,0,0)" stroke-width="1.5" d="M0 0h38.1v27.007H0z"/></clipPath></defs><g data-name="Group 295"><path data-name="Path 481" d="M37.393 14.964l-13.15-13.15V28.11z" fill="none" stroke="rgba(0,0,0,0)" stroke-width="1.5"/><g data-name="Group 291"><g data-name="Group 290" clip-path="url(#prefix__a)" transform="rotate(180 19.05 14.232)"><path data-name="Path 482" d="M13.857.354L.707 13.5l13.15 13.15" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1.5"/></g></g><path data-name="Path 483" d="M37.393 14.964h0z" fill="none" stroke="rgba(0,0,0,0)" stroke-width="1.5"/><g data-name="Group 293"><g data-name="Group 292" clip-path="url(#prefix__a)" transform="rotate(180 19.05 14.232)"><path data-name="Line 6" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1.5" d="M38.1 13.504H.707"/></g></g></g></svg>';
+
+      // Add previous and next buttons
+      const prevButton = document.createElement("span");
+      prevButton.classList.add("lightbox-prev");
+
+      prevButton.innerHTML = arrowSVG// "&#10094;";
+
+      const nextButton = document.createElement("span");
+      nextButton.classList.add("lightbox-next");
+      nextButton.innerHTML = arrowSVG //"&#10095;";
+
+      lightbox.appendChild(lightboxNav);
+
+      const dotsContainer = document.createElement("ul");
+      dotsContainer.classList.add("lightbox-dots");
+
+      lightboxNav.appendChild(dotsContainer);
+
+      lightboxNavButtons.appendChild(prevButton);
+      lightboxNavButtons.appendChild(nextButton);
+
+      lightboxNav.appendChild(lightboxNavButtons);
+
+      images.forEach((image, index) => {
+        const dot = document.createElement("li");
+        dot.classList.add("dot");
+        dot.dataset.index = index;
+        dotsContainer.appendChild(dot);
+      });
+
+      // Append the lightbox to the body
+      document.body.appendChild(lightbox);
+
+      // Close the lightbox when the close button is clicked
+      closeButton.addEventListener("click", () => {
+        lightbox.style.display = "none";
+      });
+
+      // Close the lightbox if the user clicks outside the image
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === event.currentTarget) {
+          lightbox.style.display = "none";
+        }
+      });
+    }
+
+    let currentImageIndex = 0; // Track the current image index
+
+    // Function to open the lightbox with the selected image
+    function openLightbox(image) {
+      currentImageIndex = images.indexOf(image); // Set the current image index
+      const largeImageSrc = image.getAttribute("src");
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImage = lightbox.querySelector(".lightbox-image");
+      const lightboxCaption = lightbox.querySelector(".lightbox-figure-caption");
+
+      const figure = image.closest("figure");
+      const caption = figure.querySelector(".gallery-caption");
+
+      lightboxImage.src = largeImageSrc;
+
+      if (caption) {
+        lightboxCaption.textContent = caption.textContent;
+      } else {
+        lightboxCaption.textContent = "";
+      }
+      lightbox.style.display = "flex";
+    }
+
+    // Add event listeners to gallery images within the lightbox-enabled gallery
+    images.forEach((image) => {
+      image.addEventListener("click", (event) => {
+        // Prevent default action
+        event.preventDefault();
+        openLightbox(event.target);
+      });
+    });
+
+    function updateDots() {
+      const dots = document.querySelectorAll(".dot");
+      dots.forEach((dot, index) => {
+        if (index === currentImageIndex) {
+          dot.classList.add("active");
+        } else {
+          dot.classList.remove("active");
+        }
+      });
+    }
+
+    function nextImage() {
+      // Loop back to the last image if the current image is the first one
+      if (currentImageIndex === 0) {
+        currentImageIndex = images.length - 1; // Go to the last image
+      } else {
+        currentImageIndex--; // Go to the previous image
+      }
+
+      openLightbox(images[currentImageIndex]);
+      updateDots(); // If you have any dots or other indicators to update
+    }
+
+    function prevImage() {
+      // Loop back to the first image if the current image is the last one
+      if (currentImageIndex === images.length - 1) {
+        currentImageIndex = 0; // Go to the first image
+      } else {
+        currentImageIndex++; // Go to the next image
+      }
+
+      openLightbox(images[currentImageIndex]);
+      updateDots(); // If you have any dots or other indicators to update
+    }
+
+    // Add navigation functionality $role $role for next and previous buttons
+    document
+      .querySelector(".lightbox-prev")
+      .addEventListener("click", nextImage);
+    document
+      .querySelector(".lightbox-next")
+      .addEventListener("click", prevImage);
+
+    document.querySelectorAll(".dot").forEach((dot) => {
+      dot.addEventListener("click", (event) => {
+        const index = parseInt(event.target.dataset.index);
+        currentImageIndex = index;
+        openLightbox(images[currentImageIndex]);
+        updateDots(); // If you have any dots or other indicators to update
+      });
+    });
+
+    // Event listener for keyboard navigation
+    document.addEventListener("keydown", (event) => {
+      // Check if the lightbox is visible before handling keyboard navigation
+      const lightbox = document.getElementById("lightbox");
+      if (lightbox.style.display === "flex") {
+
+        if (event.key === "ArrowLeft") { nextImage(); }
+        if (event.key === " ") { nextImage(); event.preventDefault(); }
+        if (event.key === "ArrowRight") { prevImage(); }
+        if (event.key === "Escape" ) { lightbox.style.display = "none";}
+      }
+    });
+  }
+});
+

@@ -213,5 +213,15 @@
         height: auto;
         aspect-ratio: 16 / 9;
     }
+    .block.text-block__upcoming-events > .xy-grid  > .xy-grid { row-gap: 3rem;}
+    .block.text-block__upcoming-events .events-image-col { order: 2;}
 
+    .single-post .prose img.aligncenter,
+    div.gallery.gallery-style-expanded {
+        --_expand: calc(var(--xy-gutter) * 1.5);
+        translate: 0;
+    }
+    div.gallery.gallery-style-expanded.gallery-columns-2 {
+        --_expand: calc(var(--xy-gutter) * 1);
+    }
 }

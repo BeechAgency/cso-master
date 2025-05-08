@@ -37,6 +37,7 @@ function csomaster_pingback_header() {
 add_action( 'wp_head', 'csomaster_pingback_header' );
 
 // register acf options page
+
 if( function_exists('acf_add_options_page') ) {
 	
 	acf_add_options_page(array(
@@ -47,7 +48,21 @@ if( function_exists('acf_add_options_page') ) {
 		'icon_url' 		=> 'dashicons-location',
 		'redirect'		=> false
 	));
+
+	acf_add_options_page( array(
+		'page_title' => 'Upcoming Events',
+		'menu_slug' => 'upcoming-events',
+		'menu_title' => 'Events',
+		'position' => 22,
+		'redirect' => false,
+		'menu_icon' => array(
+			'type' => 'dashicons',
+			'value' => 'dashicons-calendar-alt',
+		),
+		'icon_url' => 'dashicons-calendar-alt',
+	) );
 }
+
 function get_school_details() {
 	$school_details = array();
 
@@ -226,6 +241,7 @@ function get_block_fields($pageId = null) {
 
 	$fields['background_color'] = get_acf_value('_background_color', 'sub', $pageId);
 	$fields['text_color'] = get_acf_value('_text_color', 'sub', $pageId);
+	$fields['subtitle_color'] = get_acf_value('_subtitle_color', 'sub', $pageId);
 
 	$fields['position'] = get_acf_value('_position', 'sub', $pageId);
 	$fields['style'] = get_acf_value('_style', 'sub', $pageId);

@@ -162,3 +162,91 @@ if ( ! function_exists ( 'csomaster_mce4_options' ) ) {
 	add_filter('tiny_mce_before_init', 'csomaster_mce4_options');
 
 }
+
+/** 
+ * Gallery Settings
+ */
+function csomaster_gallery_settings_script() {
+    wp_enqueue_script(
+        'gallery settings editor',
+        get_template_directory_uri() . '/js/gallery-settings.editor.js',
+        ['media-views', 'media-editor'], // depends on wp.media
+        false,
+        true
+    );
+}
+add_action('print_media_templates', 'csomaster_gallery_settings_script');
+
+add_filter('shortcode_atts_gallery', function ($out, $pairs, $atts) {
+	
+
+    if (isset($atts['gallerystyle'])) {
+        $out['gallerystyle'] = sanitize_text_field($atts['gallerystyle']);
+    }
+    if (isset($atts['lightbox'])) {
+        $out['lightbox'] = sanitize_text_field($atts['lightbox']);
+    }
+
+	//error_log(print_r($atts, true));
+
+    return $out;
+}, 10, 3);
+
+
+
+// Remove default gallery shortcode
+remove_shortcode('gallery');
+
+// Add our custom gallery shortcode
+add_shortcode('gallery', 'csomaster_gallery_shortcode_override');
+
+function csomaster_gallery_shortcode_override($attr) {
+    // Merge with default attributes including our custom ones
+    $atts = shortcode_atts(array(
+        'gallerystyle' => '',
+        'lightbox' => '',
+        // Standard gallery attributes
+        'ids' => '',
+        'columns' => 3,
+        'size' => 'thumbnail',
+        'link' => ''
+    ), $attr, 'gallery');
+    
+    // Generate the default gallery output
+    $output = gallery_shortcode($atts);
+
+    
+    // Prepare our extra classes
+    $extra_classes = array();
+    
+    if (!empty($atts['gallerystyle'])) {
+        $extra_classes[] = 'gallery-style-' . sanitize_html_class($atts['gallerystyle']);
+    }
+    
+    if (!empty($atts['lightbox'])) {
+        $extra_classes[] = 'gallery-lightbox-' . sanitize_html_class($atts['lightbox']);
+    }
+    
+
+    // Add our classes to the gallery div
+    if (!empty($extra_classes)) {
+
+        // More reliable way to add classes to the gallery container
+        $output = str_replace(
+            "class='gallery ", 
+            "class='gallery " . implode(' ', $extra_classes) . ' ', 
+            $output
+        );
+        
+        // Fallback for different gallery class structures
+        if (strpos($output, "class='gallery ") === false) {
+            $output = str_replace(
+                "class='", 
+                "class='" . implode(' ', $extra_classes) . ' ', 
+                $output
+            );
+        }
+    }
+
+    return $output;
+}

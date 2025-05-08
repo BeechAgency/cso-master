@@ -334,3 +334,12 @@ function the_breadcrumb()
         echo '</ol>';
     }
 } // end the_breadcrumb()
+
+
+function sortByDate($a, $b) {
+    $dateA = DateTime::createFromFormat('d/m/Y', $a['event_date']);
+    $dateB = DateTime::createFromFormat('d/m/Y', $b['event_date']);
+    
+    return $dateA <=> $dateB; // Ascending order
+}
+
