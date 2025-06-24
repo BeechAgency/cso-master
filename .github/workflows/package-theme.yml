@@ -1,0 +1,29 @@
+name: Package WordPress Theme
+
+on:
+  push:
+    tags:
+      - '*'  # Triggers on all tag pushes (e.g. v1.0.0)
+
+jobs:
+  build-and-release:
+    name: Zip and upload theme
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Prepare clean zip folder
+        run: |
+          mkdir cso-master
+          shopt -s extglob
+          cp -r !(cso-master|.git|.github) cso-master/
+          zip -r cso-master.zip cso-master
+
+      - name: Create Release and Upload Asset
+        uses: softprops/action-gh-release@v1
+        with:
+          files: cso-master.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
