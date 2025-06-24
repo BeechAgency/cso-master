@@ -268,6 +268,27 @@ require get_template_directory() . '/inc/template-updater.php';
 add_action('admin_init', 'csomaster_setup_theme_settings' );
 
 function csomaster_setup_theme_settings() {
+	register_setting( 'general', 'csomaster_updates_key' );
+	add_settings_field('csomaster_updates_key', 'CSMN Master Theme Update Key', 'csomaster_updates_key_cb', 'general', 'default' );
+
+	function csomaster_updates_key_cb($args)
+	{ 
+		$name = 'CSMN Master Theme Update Key';
+		$id = 'csomaster_updates_key';
+		$value = get_option('csomaster_updates_key');
+
+		// Could use ob_start.
+		$html  = '';
+		$html .= '<input id="' . esc_attr( $id ) . '" 
+		name="' . esc_attr( 'csomaster_updates_key' ) .'" 
+		type="password" value="' . $value . '" class="regular-text ltr" />';
+		$html .= '<p class="description">' . esc_html( 'Used to get theme updates to the CSMN Master theme.' ) .'</p>';
+		$html .= '<b class="wntip" data-title="'. esc_attr( 'CSMN Master Theme Update Key' ) .'"></b>';
+
+		echo $html;
+	}
+
+
 	register_setting( 'general', 'csomaster_development_mode' );
 	add_settings_field('csomaster_development_mode', 'Enable Development Mode', 'csomaster_development_mode_settings_cb', 'general', 'default' );
 	
@@ -313,5 +334,4 @@ function csomaster_setup_theme_settings() {
 
 		echo $html;
 	}
-	
 }
