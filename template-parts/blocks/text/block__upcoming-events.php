@@ -18,21 +18,23 @@
 
     $upcoming_events = get_field('event_list', 'option');
 
-    usort($upcoming_events, 'sortByDate');
-
     $filtered_events = [];
 
     $threshold_date = new DateTime();
     $threshold_date->modify('-5 days'); // 5 days ago
 
-    foreach($upcoming_events as $event):
-        $event_date = DateTime::createFromFormat('d/m/Y', $event['event_date']);
+    if(!empty($upcoming_events) ) {
+        usort($upcoming_events, 'sortByDate');
+    
+        foreach($upcoming_events as $event):
+            $event_date = DateTime::createFromFormat('d/m/Y', $event['event_date']);
 
-        // If the date is valid and not older than 5 days, keep it
-        if ($event_date && $event_date >= $threshold_date) {
-            $filtered_events[] = $event;
-        }
-    endforeach;
+            // If the date is valid and not older than 5 days, keep it
+            if ($event_date && $event_date >= $threshold_date) {
+                $filtered_events[] = $event;
+            }
+        endforeach;
+    }
 
 ?>
 <div class="xy-col text-wrapper" data-xy-col="12" data-xy-start="auto">

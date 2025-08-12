@@ -16,7 +16,7 @@
     */
     $card_background = get_sub_field('_background_color_cards');
     $cards = get_sub_field('_cards');
-    $cards_count = count($cards);
+    $cards_count = is_countable($cards) ? count($cards) : 0;
 
     $title_alignment = get_sub_field('_title_alignment');
 
@@ -49,32 +49,35 @@
 <div class="xy-col xy-grid card-wrapper" data-xy-col="12">
     <?php 
         $card_n = 1;
-        foreach($cards as $card) : 
+        if( !empty($cards) ) :
+            foreach($cards as $card) : 
 
-            if($fields['style'] === 'style-lines' || $fields['style'] === 'style-lines-grid' || $fields['style'] === 'style-underlined-icon') $card['image'] = null;
-            if($fields['style'] === 'style-lines-grid'):
-                if($card_n === 1 || $card_n === 3) { $grid_cols = 'xl-4 lg-4 md-6 sm-12'; $grid_start = 'xl-3 lg-3 md-auto'; }
-                if($card_n === 2 || $card_n === 4) { $grid_cols = 'xl-4 lg-4 md-6 sm-12'; $grid_start = ''; }
+                if($fields['style'] === 'style-lines' || $fields['style'] === 'style-lines-grid' || $fields['style'] === 'style-underlined-icon') $card['image'] = null;
+                if($fields['style'] === 'style-lines-grid'):
+                    if($card_n === 1 || $card_n === 3) { $grid_cols = 'xl-4 lg-4 md-6 sm-12'; $grid_start = 'xl-3 lg-3 md-auto'; }
+                    if($card_n === 2 || $card_n === 4) { $grid_cols = 'xl-4 lg-4 md-6 sm-12'; $grid_start = ''; }
 
-            endif;
+                endif;
 
-            if( !empty($card['colors']) && !empty($card['colors']['background']) ) {  $card_background = $card['colors']['background']. ' '. $card['colors']['text']; }
-    ?>
-    <div class="xy-col card <?= $fields['style'].' '.$card_background ?>" data-xy-col="<?= $grid_cols ?>" data-xy-start="<?= $grid_start ?>">
-        <div class="card-inner">
-            <div class="card-image">
-                <?= wp_get_attachment_image($card['image'], 'full', 0, array('class'=> '')); ?>
-            </div>
-            <div class="card-content">
-                <?= wp_get_attachment_image($card['icon'], 'full', 0, array('class'=> 'icon')); ?>
-                <?= conditionally_output_field($card['title'], '<h4>', '</h4>'); ?>
-                <?= conditionally_output_field($card['text'], '<p>', '</p>'); ?>
-                <?= do_a_cta(  $card['cta'] ); ?>
+                if( !empty($card['colors']) && !empty($card['colors']['background']) ) {  $card_background = $card['colors']['background']. ' '. $card['colors']['text']; }
+        ?>
+        <div class="xy-col card <?= $fields['style'].' '.$card_background ?>" data-xy-col="<?= $grid_cols ?>" data-xy-start="<?= $grid_start ?>">
+            <div class="card-inner">
+                <div class="card-image">
+                    <?= wp_get_attachment_image($card['image'], 'full', 0, array('class'=> '')); ?>
+                </div>
+                <div class="card-content">
+                    <?= wp_get_attachment_image($card['icon'], 'full', 0, array('class'=> 'icon')); ?>
+                    <?= conditionally_output_field($card['title'], '<h4>', '</h4>'); ?>
+                    <?= conditionally_output_field($card['text'], '<p>', '</p>'); ?>
+                    <?= do_a_cta(  $card['cta'] ); ?>
+                </div>
             </div>
         </div>
-    </div>
-    <?php 
-        $card_n++;
-        endforeach; ?>
+        <?php 
+            $card_n++;
+            endforeach; 
+        endif;
+        ?>
 </div>
 <?php if($fields['style'] !== 'style-image-icon') echo '<div class="xy-col '.$title_alignment.'" data-xy-col="12">'.$cta_row.'</div>'; ?>
