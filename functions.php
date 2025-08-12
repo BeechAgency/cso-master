@@ -258,6 +258,11 @@ require get_template_directory() . '/inc/template-editor.php';
  */
 require get_template_directory() . '/inc/template-utilities.php';
 
+/**
+ * Get the distributor helper
+ */
+require get_template_directory() . '/inc/distributor-helper.php';
+
 
 /**
  * Get theme updater.
