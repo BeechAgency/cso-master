@@ -22,6 +22,12 @@
     private $logging = false;
     private $log_file;
 
+    private $theme_dir;
+    private $theme_name;
+    private $theme_template;
+    private $theme_uri;
+    private $theme_slug;
+
 
     public function __construct( $file ) {
         $this->file = $file;
