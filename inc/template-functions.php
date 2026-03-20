@@ -266,3 +266,14 @@ function get_block_fields($pageId = null) {
 
 	return $fields;
 }
+
+// Remove the global stylesheet
+add_action('wp_footer', function() {
+    wp_dequeue_style('global-styles');
+}, 1);
+
+// Also remove the inline style attached to it
+add_filter('style_loader_tag', function($tag, $handle) {
+    if ($handle === 'global-styles') return '';
+    return $tag;
+}, 10, 2);
